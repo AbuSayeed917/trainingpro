@@ -7,24 +7,28 @@ import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/ui/Animate
 const stats = [
   {
     end: 12,
+    prefix: "",
     suffix: "",
     label: "Week Duration",
     description: "Intensive training",
   },
   {
     end: 100,
+    prefix: "",
     suffix: "%",
     label: "Practical Focus",
     description: "Hands-on learning",
   },
   {
     end: 6,
+    prefix: "",
     suffix: "+",
     label: "Programme Options",
     description: "Multiple career paths",
   },
   {
     end: 24,
+    prefix: "",
     suffix: "/7",
     label: "Online Access",
     description: "Learning platform",

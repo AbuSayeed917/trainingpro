@@ -189,7 +189,7 @@ export function SuccessStories() {
                           <Quote className="h-8 w-8 text-primary-200" />
                         </div>
                         <blockquote className="text-gray-700 italic leading-relaxed">
-                          "{story.quote}"
+                          &ldquo;{story.quote}&rdquo;
                         </blockquote>
                       </div>
                     </div>

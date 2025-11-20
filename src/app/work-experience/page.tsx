@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Container, Badge } from "@/components/ui";
-import { Briefcase, Clock, MapPin, TrendingUp, CheckCircle2, ArrowRight, Users, Award, Building2, Target, Zap, Rocket } from "lucide-react";
+import { Container } from "@/components/ui";
+import { Briefcase, Clock, MapPin, TrendingUp, CheckCircle2, ArrowRight, Users, Award, Building2 } from "lucide-react";
 
 const benefits = [
   {
@@ -141,7 +141,7 @@ export default function WorkExperiencePage() {
               Why Work Experience Matters
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Practical experience is invaluable for launching your career. Here's how our work
+              Practical experience is invaluable for launching your career. Here&apos;s how our work
               placements help you succeed in the competitive job market.
             </p>
           </div>
@@ -171,7 +171,7 @@ export default function WorkExperiencePage() {
               How Our Placement Process Works
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Our structured four-step process ensures you're matched with the right opportunity
+              Our structured four-step process ensures you&apos;re matched with the right opportunity
               and fully supported throughout your placement journey.
             </p>
           </div>

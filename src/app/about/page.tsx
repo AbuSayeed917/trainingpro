@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Container, Badge } from "@/components/ui";
-import { Target, Users, Award, TrendingUp, CheckCircle2, ArrowRight, Lightbulb, Heart, Shield, Sparkles } from "lucide-react";
+import { Container } from "@/components/ui";
+import { Target, Users, Award, TrendingUp, CheckCircle2, ArrowRight, Lightbulb, Heart, Shield } from "lucide-react";
 
 const values = [
   {
@@ -74,7 +74,7 @@ export default function AboutPage() {
 
             {/* Description */}
             <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              We're dedicated to providing accessible, high-quality professional training in
+              We&apos;re dedicated to providing accessible, high-quality professional training in
               finance, accounting, and business management that opens doors to rewarding careers.
             </p>
           </div>
@@ -211,7 +211,7 @@ export default function AboutPage() {
                 What Sets Us Apart
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                We're not just another training provider. Our approach combines academic rigor
+                We&apos;re not just another training provider. Our approach combines academic rigor
                 with practical application, ensuring you gain skills that employers actually need.
               </p>
               <div className="space-y-4">

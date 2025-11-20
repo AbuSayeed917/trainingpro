@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container, Badge } from "@/components/ui";
-import { Clock, ArrowRight, Award, BookOpen, CheckCircle2, TrendingUp, Users, Star, Sparkles, Zap } from "lucide-react";
+import { Clock, ArrowRight, Award, BookOpen, CheckCircle2, TrendingUp, Users, Star } from "lucide-react";
 
 const allProgrammes = [
   {
@@ -290,7 +290,7 @@ export default function ProgrammesPage() {
                 Not Sure Which Programme Is Right For You?
               </h2>
               <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                Book a free consultation with our career advisors. We'll assess your skills and
+                Book a free consultation with our career advisors. We&apos;ll assess your skills and
                 recommend the perfect training path for your career.
               </p>
               <Link

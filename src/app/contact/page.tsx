@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Container, Badge } from "@/components/ui";
-import { Mail, Phone, MapPin, Clock, Send, MessageSquare, CheckCircle2, HelpCircle, Sparkles } from "lucide-react";
+import { Container } from "@/components/ui";
+import { Mail, Phone, MapPin, Clock, Send, MessageSquare, CheckCircle2, HelpCircle } from "lucide-react";
 import { useState } from "react";
 
 const contactInfo = [
@@ -112,7 +112,7 @@ export default function ContactPage() {
 
             {/* Description */}
             <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Have questions about our programmes? Want to discuss your career goals? We're here
+              Have questions about our programmes? Want to discuss your career goals? We&apos;re here
               to help you take the first step towards professional success.
             </p>
           </div>
@@ -161,7 +161,7 @@ export default function ContactPage() {
               <div className="mb-10">
                 <h2 className="text-4xl font-bold text-gray-900 mb-4">Send Us a Message</h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Fill out the form below and we'll get back to you as soon as possible.
+                  Fill out the form below and we&apos;ll get back to you as soon as possible.
                 </p>
               </div>
 
@@ -172,7 +172,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-green-900 font-semibold mb-1">Message Sent Successfully!</p>
                       <p className="text-green-700 text-sm">
-                        Thank you for your message. We'll be in touch soon.
+                        Thank you for your message. We&apos;ll be in touch soon.
                       </p>
                     </div>
                   </div>

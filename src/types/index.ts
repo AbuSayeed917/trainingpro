@@ -30,7 +30,8 @@ export type ProgrammeCategory =
   | "hr"
   | "finance"
   | "business-management"
-  | "compliance";
+  | "compliance"
+  | "software";
 
 export type ProgrammeLevel = "beginner" | "intermediate" | "advanced" | "professional";
 
