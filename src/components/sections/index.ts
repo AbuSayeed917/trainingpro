@@ -1,0 +1,11 @@
+export { Hero } from "./Hero";
+export { Features } from "./Features";
+export { FeaturedProgrammes } from "./FeaturedProgrammes";
+export { HowItWorks } from "./HowItWorks";
+export { Testimonials } from "./Testimonials";
+export { TrustedBy } from "./TrustedBy";
+export { FAQ } from "./FAQ";
+export { CTA } from "./CTA";
+export { Instructors } from "./Instructors";
+export { SuccessStories } from "./SuccessStories";
+export { LearningRoadmap } from "./LearningRoadmap";
