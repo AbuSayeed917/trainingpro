@@ -347,6 +347,64 @@ export default function ContactPage() {
         </Container>
       </section>
 
+      {/* Location/Map Section */}
+      <section className="py-20 bg-white">
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Visit Our Training Centre</h2>
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                Our modern training facilities are equipped with the latest technology and software
+                to provide you with the best learning experience.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Central Location</p>
+                    <p className="text-gray-600 text-sm">Easy access by public transport and parking available</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                    <Clock className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Flexible Hours</p>
+                    <p className="text-gray-600 text-sm">Evening and weekend classes to fit your schedule</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Book a Visit</p>
+                    <p className="text-gray-600 text-sm">Schedule a tour to see our facilities</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80"
+                alt="Modern training facility"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8 text-white">
+                <h3 className="text-2xl font-bold mb-2">State-of-the-Art Facilities</h3>
+                <p className="text-white/90">Equipped with industry-standard software and hardware</p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* FAQ Quick Links */}
       <section className="py-24 bg-gray-50">
         <Container>

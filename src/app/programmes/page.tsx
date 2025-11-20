@@ -175,6 +175,58 @@ export default function ProgrammesPage() {
         </Container>
       </section>
 
+      {/* Video/Image Section */}
+      <section className="py-20 bg-white">
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&q=80"
+                alt="Professional training classroom"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8 text-white">
+                <h3 className="text-3xl font-bold mb-2">Real-World Training Experience</h3>
+                <p className="text-lg text-white/90">Learn from industry experts in professional environments</p>
+              </div>
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Our Programmes Stand Out</h2>
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                Our training programmes combine theoretical knowledge with hands-on practical experience,
+                ensuring you&apos;re job-ready from day one.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">Industry-Recognized Certifications</p>
+                    <p className="text-gray-600 text-sm">AAT, ICB, and CIPP aligned qualifications</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">Hands-On Software Training</p>
+                    <p className="text-gray-600 text-sm">Master Sage, Xero, QuickBooks, and more</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-gray-900">Flexible Learning Options</p>
+                    <p className="text-gray-600 text-sm">Evening, weekend, and online classes available</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Filter Tabs */}
       <section className="sticky top-16 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <Container>

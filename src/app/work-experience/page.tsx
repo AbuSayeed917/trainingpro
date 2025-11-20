@@ -163,6 +163,54 @@ export default function WorkExperiencePage() {
         </Container>
       </section>
 
+      {/* Success Stories with Images */}
+      <section className="py-20 bg-white">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+              Real Success Stories
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              See how our work placements have transformed careers
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl group">
+              <Image
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+                alt="Professional working in office"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8 text-white">
+                <h3 className="text-2xl font-bold mb-2">Sarah Thompson</h3>
+                <p className="text-white/90 mb-1">Payroll Administrator</p>
+                <p className="text-sm text-white/80">&ldquo;The work placement gave me the confidence and experience I needed to start my career in payroll.&rdquo;</p>
+              </div>
+            </div>
+
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl group">
+              <Image
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+                alt="Professional in accounting role"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8 text-white">
+                <h3 className="text-2xl font-bold mb-2">James Mitchell</h3>
+                <p className="text-white/90 mb-1">Junior Accountant</p>
+                <p className="text-sm text-white/80">&ldquo;Hands-on experience with real clients made all the difference in securing my first accounting role.&rdquo;</p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Process Section */}
       <section className="py-24 bg-gray-50">
         <Container>
@@ -193,6 +241,60 @@ export default function WorkExperiencePage() {
                 </div>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Video/Image Feature Section */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Gain Industry Experience</h2>
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                Our work placement programme connects you with leading companies across the UK,
+                giving you the opportunity to apply your skills in real business environments.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
+                    <CheckCircle2 className="w-6 h-6 text-secondary-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Professional Mentorship</p>
+                    <p className="text-gray-600 text-sm">Work alongside experienced professionals who guide your development</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
+                    <CheckCircle2 className="w-6 h-6 text-secondary-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Build Your Network</p>
+                    <p className="text-gray-600 text-sm">Connect with industry professionals and potential employers</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
+                    <CheckCircle2 className="w-6 h-6 text-secondary-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1">Strengthen Your CV</p>
+                    <p className="text-gray-600 text-sm">Stand out with practical experience that employers value</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80"
+                alt="Team meeting in office"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            </div>
           </div>
         </Container>
       </section>

@@ -133,6 +133,68 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      {/* Team Section */}
+      <section className="py-20 bg-white">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Meet Our Expert Team</h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Industry professionals dedicated to your success
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="group">
+              <div className="relative h-80 rounded-2xl overflow-hidden mb-4 shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80"
+                  alt="Lead Instructor"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-1">David Richardson</h3>
+              <p className="text-primary-600 font-medium mb-2">Lead Payroll Instructor</p>
+              <p className="text-gray-600 text-sm">15+ years in payroll management with CIPP certification</p>
+            </div>
+
+            <div className="group">
+              <div className="relative h-80 rounded-2xl overflow-hidden mb-4 shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80"
+                  alt="Senior Instructor"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-1">Emma Williams</h3>
+              <p className="text-primary-600 font-medium mb-2">Senior Bookkeeping Trainer</p>
+              <p className="text-gray-600 text-sm">AAT qualified with 12 years teaching experience</p>
+            </div>
+
+            <div className="group">
+              <div className="relative h-80 rounded-2xl overflow-hidden mb-4 shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80"
+                  alt="HR Specialist"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-1">Michael Chen</h3>
+              <p className="text-primary-600 font-medium mb-2">HR & Employment Law Expert</p>
+              <p className="text-gray-600 text-sm">CIPD certified with corporate HR background</p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Vision, Passion, Commitment */}
       <section className="py-24 bg-gray-50">
         <Container>
