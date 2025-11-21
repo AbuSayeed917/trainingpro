@@ -235,7 +235,7 @@ export function BookingVisuals() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-1">No Pressure Decision</h4>
-                        <p className="text-sm text-gray-600">Take your time to decide - we're here to help, not to pressure</p>
+                        <p className="text-sm text-gray-600">Take your time to decide - we&apos;re here to help, not to pressure</p>
                       </div>
                     </div>
 

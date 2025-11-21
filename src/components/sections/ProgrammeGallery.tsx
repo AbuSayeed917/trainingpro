@@ -115,7 +115,7 @@ export function ProgrammeGallery() {
                 {/* Image/Video Thumbnail */}
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
-                    src={item.type === "video" ? item.thumbnail : item.src}
+                    src={(item.type === "video" ? item.thumbnail : item.src) || ""}
                     alt={item.title}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
