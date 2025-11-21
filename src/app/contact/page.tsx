@@ -187,7 +187,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Visuals Section */}
-      <ContactVisuals />
+      {/* <ContactVisuals /> */}
 
       {/* Premium Contact Info Cards */}
       <section className="py-20 bg-gradient-to-b from-white to-gray-50">
