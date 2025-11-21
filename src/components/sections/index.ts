@@ -18,3 +18,5 @@ export { WhyTrainingNeeded } from "./WhyTrainingNeeded";
 export { SalaryProgressionChart } from "./SalaryProgressionChart";
 export { ModernComparison } from "./ModernComparison";
 export { StatsDashboard } from "./StatsDashboard";
+export { TestimonialsEnhanced } from "./TestimonialsEnhanced";
+export { SkillShowcase } from "./SkillShowcase";

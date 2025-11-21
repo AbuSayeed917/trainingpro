@@ -8,3 +8,6 @@ export { Skeleton, SkeletonCard, SkeletonText } from "./Skeleton";
 export { FadeIn, FadeInUp, SlideInLeft, SlideInRight, ScaleIn, StaggerContainer, StaggerItem } from "./AnimatedSection";
 export { ImagePlaceholder, GradientPlaceholder } from "./ImagePlaceholder";
 export { ScrollReveal } from "./ScrollReveal";
+export { MagneticButton } from "./MagneticButton";
+export { ParticleField } from "./ParticleField";
+export { ProgressiveImage } from "./ProgressiveImage";
