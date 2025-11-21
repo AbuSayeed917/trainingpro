@@ -15,3 +15,6 @@ export { VideoShowcase } from "./VideoShowcase";
 export { TrainerShowcase } from "./TrainerShowcase";
 export { SalaryCareerInfo } from "./SalaryCareerInfo";
 export { WhyTrainingNeeded } from "./WhyTrainingNeeded";
+export { SalaryProgressionChart } from "./SalaryProgressionChart";
+export { ModernComparison } from "./ModernComparison";
+export { StatsDashboard } from "./StatsDashboard";

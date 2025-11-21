@@ -11,6 +11,9 @@ import {
   TrainerShowcase,
   SalaryCareerInfo,
   WhyTrainingNeeded,
+  SalaryProgressionChart,
+  ModernComparison,
+  StatsDashboard,
   CTA
 } from "@/components/sections";
 import { AnimatedStats } from "@/components/sections/AnimatedStats";
@@ -20,6 +23,9 @@ export default function Home() {
     <>
       <Hero />
       <VideoShowcase />
+      <StatsDashboard />
+      <SalaryProgressionChart />
+      <ModernComparison />
       <SalaryCareerInfo />
       <WhyTrainingNeeded />
       <Features />
