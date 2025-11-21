@@ -1,35 +1,44 @@
 import Link from "next/link";
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, Award, Clock, GraduationCap } from "lucide-react";
 
 const footerLinks = {
-  programmes: [
-    { name: "Payroll Training", href: "/programmes/payroll" },
-    { name: "Bookkeeping", href: "/programmes/bookkeeping" },
-    { name: "Accounting", href: "/programmes/accounting" },
-    { name: "Tax & Compliance", href: "/programmes/tax" },
-    { name: "HR Management", href: "/programmes/hr" },
-  ],
-  company: [
-    { name: "About Us", href: "/about" },
+  quickLinks: [
+    { name: "Home", href: "/" },
+    { name: "BrightPay Programme", href: "/programmes" },
     { name: "Work Experience", href: "/work-experience" },
-    { name: "Success Stories", href: "/success-stories" },
-    { name: "Careers", href: "/careers" },
+    { name: "About Us", href: "/about" },
     { name: "Contact", href: "/contact" },
   ],
-  resources: [
-    { name: "Blog", href: "/blog" },
-    { name: "FAQs", href: "/faqs" },
-    { name: "Guides", href: "/guides" },
-    { name: "Downloads", href: "/downloads" },
-    { name: "Support", href: "/support" },
+  training: [
+    { name: "Programme Overview", href: "/programmes" },
+    { name: "Curriculum Details", href: "/programmes#curriculum" },
+    { name: "Weekend Classes", href: "/programmes#schedule" },
+    { name: "Pricing & Payment", href: "/programmes#pricing" },
+    { name: "Book Consultation", href: "/book" },
   ],
   legal: [
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
-    { name: "Cookie Policy", href: "/cookies" },
-    { name: "Accessibility", href: "/accessibility" },
   ],
 };
+
+const trustIndicators = [
+  {
+    icon: Award,
+    label: "HMRC Recognized",
+    description: "BrightPay Software",
+  },
+  {
+    icon: GraduationCap,
+    label: "Expert Trainer",
+    description: "15+ Years Experience",
+  },
+  {
+    icon: Clock,
+    label: "Flexible Schedule",
+    description: "Weekend Classes",
+  },
+];
 
 const socialLinks = [
   { name: "Facebook", icon: Facebook, href: "#" },
@@ -42,33 +51,51 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        {/* Trust Indicators */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 pb-12 border-b border-gray-800">
+          {trustIndicators.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <div key={index} className="flex items-start gap-4 group">
+                <div className="p-3 rounded-xl bg-gradient-to-br from-primary-600 to-primary-500 group-hover:scale-110 transition-transform duration-300">
+                  <Icon className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <div className="text-white font-semibold mb-1">{item.label}</div>
+                  <div className="text-sm text-gray-400">{item.description}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-block">
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-primary-300 bg-clip-text text-transparent">
+            <Link href="/" className="inline-block group">
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-primary-300 bg-clip-text text-transparent group-hover:from-primary-300 group-hover:to-primary-400 transition-all">
                 Training Pro
               </span>
             </Link>
-            <p className="mt-4 text-sm leading-6 max-w-sm">
-              Empowering professionals with world-class training in payroll, bookkeeping, accounting,
-              and business management. Start your journey to excellence today.
+            <p className="mt-4 text-sm leading-6 max-w-sm text-gray-400">
+              Expert BrightPay payroll training with personalized one-to-one instruction.
+              Launch your payroll career with practical skills that employers demand.
             </p>
 
             {/* Contact Info */}
             <div className="mt-6 space-y-3">
               <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-primary-400 mt-0.5" />
-                <span className="text-sm">123 Business Street, London, UK</span>
+                <MapPin className="h-5 w-5 text-primary-400 mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-gray-400">123 Business Street, London, UK</span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-primary-400" />
-                <span className="text-sm">+44 (0) 20 1234 5678</span>
+                <Phone className="h-5 w-5 text-primary-400 flex-shrink-0" />
+                <span className="text-sm text-gray-400">+44 (0) 20 1234 5678</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-primary-400" />
-                <span className="text-sm">info@trainingpro.co.uk</span>
+                <Mail className="h-5 w-5 text-primary-400 flex-shrink-0" />
+                <span className="text-sm text-gray-400">info@trainingpro.co.uk</span>
               </div>
             </div>
 
@@ -80,7 +107,7 @@ export function Footer() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-gray-400 hover:text-primary-400 transition-colors"
+                    className="p-2 rounded-lg bg-gray-800 text-gray-400 hover:bg-primary-600 hover:text-white transition-all duration-300"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -92,16 +119,17 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Programmes */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-4">Programmes</h3>
+            <h3 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Quick Links</h3>
             <ul className="space-y-3">
-              {footerLinks.programmes.map((link) => (
+              {footerLinks.quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm hover:text-primary-400 transition-colors"
+                    className="text-sm text-gray-400 hover:text-primary-400 transition-colors inline-flex items-center gap-2 group"
                   >
+                    <span className="w-0 h-px bg-primary-400 group-hover:w-4 transition-all duration-300" />
                     {link.name}
                   </Link>
                 </li>
@@ -109,33 +137,17 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Training Programme */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-4">Company</h3>
+            <h3 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Training</h3>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
+              {footerLinks.training.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm hover:text-primary-400 transition-colors"
+                    className="text-sm text-gray-400 hover:text-primary-400 transition-colors inline-flex items-center gap-2 group"
                   >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="text-sm font-semibold text-white mb-4">Resources</h3>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-sm hover:text-primary-400 transition-colors"
-                  >
+                    <span className="w-0 h-px bg-primary-400 group-hover:w-4 transition-all duration-300" />
                     {link.name}
                   </Link>
                 </li>

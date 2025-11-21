@@ -2,217 +2,198 @@
 
 import Image from "next/image";
 import { Container } from "@/components/ui";
-import { FadeInUp, SlideInLeft, SlideInRight } from "@/components/ui/AnimatedSection";
-import { Quote, TrendingUp, Briefcase, Award } from "lucide-react";
+import { FadeInUp, StaggerContainer, StaggerItem } from "@/components/ui/AnimatedSection";
+import { Quote, TrendingUp, Briefcase, Award, Users, Target, CheckCircle } from "lucide-react";
 
-const successStories = [
+const trainingFeatures = [
   {
     id: 1,
-    name: "Jessica Martinez",
-    age: 28,
-    before: {
-      title: "Retail Assistant",
-      salary: "£18,000",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80",
-      situation: "Working part-time in retail with no clear career path. Limited qualifications and feeling stuck in minimum wage roles.",
-    },
-    after: {
-      title: "Payroll Administrator",
-      salary: "£28,500",
-      company: "Deloitte",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
-      achievement: "Completed Professional Payroll Management programme. Now managing payroll for 200+ employees at a Big 4 firm.",
-    },
-    programme: "Professional Payroll Management",
-    duration: "12 weeks",
-    quote: "The course changed my life. I went from earning minimum wage to a professional career with real prospects. The work experience placement at Deloitte led to my permanent role.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+    icon: Users,
+    title: "One-to-One Personalized Training",
+    description: "Receive individual attention from a 15+ year global payroll specialist who tailors every session to your learning style and pace.",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+    gradient: "from-blue-500 to-blue-600",
   },
   {
     id: 2,
-    name: "Marcus Johnson",
-    age: 35,
-    before: {
-      title: "Warehouse Supervisor",
-      salary: "£22,000",
-      image: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80",
-      situation: "Career change after 10 years in logistics. No accounting background but wanted office-based professional career.",
-    },
-    after: {
-      title: "Bookkeeper",
-      salary: "£32,000",
-      company: "RSM UK",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
-      achievement: "AAT Level 3 qualified. Now providing bookkeeping services to 15+ SME clients. Working towards setting up own practice.",
-    },
-    programme: "Bookkeeping Fundamentals + Advanced",
-    duration: "16 weeks",
-    quote: "At 35, I thought it was too late to change careers. This programme proved me wrong. The instructors were patient and the practical training was invaluable.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    icon: Target,
+    title: "Practical Hands-On Experience",
+    description: "Master BrightPay software through real-world payroll scenarios including RTI submissions, statutory payments, and pension auto-enrolment.",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
+    gradient: "from-purple-500 to-purple-600",
   },
   {
     id: 3,
-    name: "Priya Sharma",
-    age: 24,
-    before: {
-      title: "Graduate (Unemployed)",
-      salary: "£0",
-      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80",
-      situation: "Recent humanities graduate struggling to find work. Degree didn't provide practical skills employers wanted.",
-    },
-    after: {
-      title: "Junior Accountant",
-      salary: "£26,000",
-      company: "Grant Thornton",
-      image: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=600&q=80",
-      achievement: "Gained ACCA Level 1 certification. Secured role through our placement programme. On track for chartered accountant qualification.",
-    },
-    programme: "Advanced Accounting & Tax",
-    duration: "16 weeks",
-    quote: "My degree didn't open doors, but this programme did. The combination of professional qualifications and real work experience made all the difference.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
+    icon: Briefcase,
+    title: "Job-Ready in 6 Weeks",
+    description: "Complete your training with comprehensive CV preparation and job application support to launch your payroll career with confidence.",
+    image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=800&q=80",
+    gradient: "from-green-500 to-green-600",
   },
 ];
 
 export function SuccessStories() {
   return (
-    <section className="section-padding bg-gradient-to-b from-gray-50 to-white">
-      <Container>
+    <section className="section-padding bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0 opacity-5">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="https://cdn.coverr.co/videos/coverr-studying-together-5044/1080p.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, #3B82F6 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+
+      {/* Animated Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary-400/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+
+        {/* Floating Elements */}
+        <div className="absolute top-1/3 left-[8%] w-18 h-18 bg-primary-400/5 rounded-lg rotate-45 animate-float"></div>
+        <div className="absolute bottom-1/3 right-[15%] w-16 h-16 bg-blue-400/5 rounded-full animate-float-delayed"></div>
+        <div className="absolute top-2/3 left-[20%] w-20 h-20 bg-indigo-400/5 rounded-lg -rotate-12 animate-float-slow"></div>
+      </div>
+
+      <Container className="relative z-10">
         <FadeInUp>
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <Award className="h-4 w-4" />
-              Real Success Stories
+            <div className="flex justify-center mb-6">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary-100 to-blue-100 border border-primary-200 rounded-full shadow-lg">
+                <div className="relative">
+                  <div className="w-2 h-2 bg-primary-600 rounded-full animate-pulse"></div>
+                  <div className="absolute inset-0 w-2 h-2 bg-primary-600 rounded-full animate-ping"></div>
+                </div>
+                <span className="text-xs font-bold text-primary-900 tracking-widest uppercase">Training Excellence</span>
+              </div>
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
-              Transforming Lives, Building Careers
+
+            <h2 className="text-4xl font-black tracking-tight text-gray-900 sm:text-5xl lg:text-6xl mb-6">
+              <span className="block">Your Path to</span>
+              <span className="block mt-1 bg-gradient-to-r from-primary-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent">Payroll Success</span>
             </h2>
-            <p className="text-lg text-gray-600">
-              Meet some of our graduates who turned their aspirations into reality through our training programmes
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Discover the <span className="font-bold text-primary-700 bg-primary-50 px-2 py-1 rounded-md">key features</span> that make our BrightPay training programme so effective
             </p>
           </div>
         </FadeInUp>
 
-        {/* Success Stories */}
-        <div className="space-y-24">
-          {successStories.map((story, index) => {
-            const isEven = index % 2 === 0;
-            return (
-              <div key={story.id} className="relative">
-                {/* Timeline Connector */}
-                {index < successStories.length - 1 && (
-                  <div className="absolute left-1/2 bottom-0 w-0.5 h-24 -translate-x-1/2 translate-y-full bg-gradient-to-b from-primary-600 to-transparent hidden lg:block" />
-                )}
+        {/* Feature Cards */}
+        <StaggerContainer>
+          <div className="grid gap-8 lg:grid-cols-3 mb-20">
+            {trainingFeatures.map((feature) => {
+              const Icon = feature.icon;
+              return (
+                <StaggerItem key={feature.id}>
+                  <div className="group relative h-full">
+                    {/* Card */}
+                    <div className="relative h-full bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-primary-200 hover:transform hover:scale-105">
+                      {/* Glow Effect */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
 
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                  {/* Before Section */}
-                  <SlideInLeft delay={0.1}>
-                    <div className={`${!isEven ? 'lg:order-2' : ''}`}>
-                      <div className="relative rounded-2xl overflow-hidden shadow-lg mb-6 aspect-[16/10]">
+                      {/* Image */}
+                      <div className="relative aspect-[16/10] overflow-hidden">
                         <Image
-                          src={story.before.image}
-                          alt={`${story.name} before`}
+                          src={feature.image}
+                          alt={feature.title}
                           fill
-                          className="object-cover"
-                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                          sizes="(max-width: 1024px) 100vw, 33vw"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20" />
-                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                          <div className="text-xs uppercase tracking-wider font-bold text-red-300 mb-2">
-                            Before
-                          </div>
-                          <div className="text-2xl font-bold mb-2">{story.before.title}</div>
-                          <div className="text-lg font-semibold text-red-200">{story.before.salary}/year</div>
+                        {/* Multi-layer gradients */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                        <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-700 mix-blend-overlay`} />
+
+                        {/* Animated shimmer effect */}
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer"></div>
                         </div>
-                      </div>
-                      <p className="text-sm text-gray-600 italic">
-                        {story.before.situation}
-                      </p>
-                    </div>
-                  </SlideInLeft>
 
-                  {/* After Section */}
-                  <SlideInRight delay={0.2}>
-                    <div className={`${!isEven ? 'lg:order-1' : ''}`}>
-                      <div className="relative rounded-2xl overflow-hidden shadow-lg mb-6 aspect-[16/10]">
-                        <Image
-                          src={story.after.image}
-                          alt={`${story.name} after`}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 1024px) 100vw, 50vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20" />
-                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                          <div className="text-xs uppercase tracking-wider font-bold text-green-300 mb-2">
-                            After
-                          </div>
-                          <div className="text-2xl font-bold mb-2">{story.after.title}</div>
-                          <div className="flex items-center gap-2 mb-2">
-                            <Briefcase className="h-4 w-4 text-green-300" />
-                            <span className="text-sm font-medium">{story.after.company}</span>
-                          </div>
-                          <div className="text-lg font-semibold text-green-200">
-                            {story.after.salary}/year
-                            <TrendingUp className="inline h-4 w-4 ml-2" />
+                        {/* Icon Badge */}
+                        <div className="absolute top-4 right-4 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                          <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${feature.gradient} shadow-xl flex items-center justify-center ring-4 ring-white/50 group-hover:ring-white/80`}>
+                            <Icon className="h-7 w-7 text-white" />
                           </div>
                         </div>
                       </div>
-                      <p className="text-sm text-gray-900 font-medium mb-4">
-                        {story.after.achievement}
-                      </p>
-                    </div>
-                  </SlideInRight>
-                </div>
 
-                {/* Student Profile & Quote */}
-                <FadeInUp delay={0.3}>
-                  <div className="mt-8 bg-white rounded-2xl shadow-lg p-8 border-l-4 border-primary-600">
-                    <div className="flex items-start gap-6">
-                      <div className="relative w-20 h-20 rounded-full overflow-hidden flex-shrink-0 ring-4 ring-primary-100">
-                        <Image
-                          src={story.image}
-                          alt={story.name}
-                          fill
-                          className="object-cover"
-                          sizes="80px"
-                        />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between mb-4">
-                          <div>
-                            <h3 className="text-xl font-bold text-gray-900">{story.name}</h3>
-                            <p className="text-sm text-gray-600">
-                              Age {story.age} • {story.programme} • {story.duration}
-                            </p>
-                          </div>
-                          <Quote className="h-8 w-8 text-primary-200" />
+                      {/* Content */}
+                      <div className="p-8 relative">
+                        <h3 className="text-xl font-bold text-gray-900 mb-3">
+                          {feature.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          {feature.description}
+                        </p>
+                        <div className="mt-4 flex items-center gap-2">
+                          <CheckCircle className={`h-5 w-5 bg-gradient-to-br ${feature.gradient} bg-clip-text text-transparent`} />
+                          <span className="text-sm font-medium text-gray-700">Included in £999 package</span>
                         </div>
-                        <blockquote className="text-gray-700 italic leading-relaxed">
-                          &ldquo;{story.quote}&rdquo;
-                        </blockquote>
                       </div>
                     </div>
                   </div>
-                </FadeInUp>
-              </div>
-            );
-          })}
-        </div>
+                </StaggerItem>
+              );
+            })}
+          </div>
+        </StaggerContainer>
 
-        {/* CTA */}
+        {/* CTA Section */}
         <FadeInUp delay={0.4}>
-          <div className="mt-20 text-center bg-gradient-to-r from-primary-600 to-primary-400 rounded-2xl p-12 text-white">
-            <h3 className="text-2xl font-bold mb-4">Ready to Write Your Success Story?</h3>
-            <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
-              Join hundreds of successful graduates who transformed their careers through our professional training programmes
-            </p>
-            <a
-              href="/enroll"
-              className="inline-flex items-center justify-center gap-2 h-13 px-8 text-lg font-semibold bg-white text-primary-600 hover:bg-gray-100 rounded-lg shadow-lg hover:shadow-xl transition-all"
-            >
-              Start Your Journey Today
-            </a>
+          <div className="bg-gradient-to-br from-primary-600 to-blue-600 rounded-3xl p-8 md:p-12 text-white shadow-2xl">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold mb-4">Ready to Start Your BrightPay Journey?</h3>
+                <p className="text-blue-100 mb-6">
+                  Join our 6-week training programme and launch your rewarding payroll career with comprehensive support and expert instruction.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="/programmes"
+                    className="inline-flex items-center justify-center gap-2 h-13 px-8 text-lg font-medium bg-white text-primary-600 hover:bg-gray-50 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                  >
+                    View Programme Details
+                  </a>
+                  <a
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 h-13 px-8 text-lg font-medium border-2 border-white text-white hover:bg-white/10 rounded-lg transition-all"
+                  >
+                    Get Started Today
+                  </a>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                  <div className="text-3xl font-bold mb-2">6 Weeks</div>
+                  <div className="text-sm text-blue-100">Complete Training</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                  <div className="text-3xl font-bold mb-2">Max 4</div>
+                  <div className="text-sm text-blue-100">Students/Session</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                  <div className="text-3xl font-bold mb-2">15+ Years</div>
+                  <div className="text-sm text-blue-100">Expert Trainer</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                  <div className="text-3xl font-bold mb-2">£999</div>
+                  <div className="text-sm text-blue-100">All Inclusive</div>
+                </div>
+              </div>
+            </div>
           </div>
         </FadeInUp>
       </Container>

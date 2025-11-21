@@ -1,361 +1,513 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container, Badge } from "@/components/ui";
-import { Clock, ArrowRight, Award, BookOpen, CheckCircle2, TrendingUp, Users, Star } from "lucide-react";
+import { Clock, ArrowRight, Award, BookOpen, CheckCircle2, TrendingUp, Users, Star, GraduationCap, Briefcase } from "lucide-react";
+import { FadeIn, FadeInUp, StaggerContainer, StaggerItem } from "@/components/ui/AnimatedSection";
+import { ProgrammeTestimonials } from "@/components/sections/ProgrammeTestimonials";
+import { ProgrammeGallery } from "@/components/sections/ProgrammeGallery";
 
-const allProgrammes = [
+// THE ONE BRIGHTPAY TRAINING PROGRAMME
+const programme = {
+  id: "1",
+  title: "BrightPay Payroll Training",
+  slug: "brightpay-payroll",
+  description: "Master UK payroll with expert 1-to-1 training. Learn BrightPay software, gain practical experience, and launch your payroll career in just 6 weeks.",
+  duration: "6 weeks",
+  price: 999,
+  image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80",
+  features: [
+    "One-to-one personal instruction",
+    "Maximum 4 students per session",
+    "15+ years expert trainer experience",
+    "Weekend classes available",
+    "Work on real payroll projects",
+    "BrightPay software (free HMRC-recognized)",
+    "9 comprehensive modules",
+    "CV assistance & job support",
+    "Interview preparation",
+    "Flexible weekend schedule",
+  ],
+};
+
+const curriculumModules = [
   {
-    id: "1",
-    title: "Professional Payroll Management",
-    slug: "payroll",
-    category: "Payroll",
-    description: "Master payroll processing, compliance, and management with industry-standard software.",
-    duration: "12 weeks",
-    level: "Intermediate",
-    price: 1299,
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
-    features: ["PAYE & NI", "RTI Submissions", "Pension Auto-Enrolment", "Payroll Software Training"],
-    isPopular: true,
+    number: "01",
+    title: "Software Setup",
+    items: ["Install & configure BrightPay", "Set up company/employer settings"],
   },
   {
-    id: "2",
-    title: "Bookkeeping Fundamentals",
-    slug: "bookkeeping",
-    category: "Bookkeeping",
-    description: "Learn essential bookkeeping skills from basic transactions to financial statements.",
-    duration: "10 weeks",
-    level: "Beginner",
-    price: 999,
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
-    features: ["Double-Entry", "VAT Returns", "Bank Reconciliation", "Sage & Xero Training"],
-    isPopular: false,
+    number: "02",
+    title: "Employee Management",
+    items: ["Add/remove employees", "Manage personnel data & records"],
   },
   {
-    id: "3",
-    title: "Advanced Accounting & Tax",
-    slug: "accounting",
-    category: "Accounting",
-    description: "Advance your career with comprehensive accounting and tax compliance training.",
-    duration: "16 weeks",
-    level: "Advanced",
-    price: 1799,
-    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=800&q=80",
-    features: ["Financial Statements", "Tax Planning", "HMRC Compliance", "Year-End Procedures"],
-    isPopular: false,
+    number: "03",
+    title: "Payroll Processing",
+    items: ["Monthly, weekly & director payroll runs", "Generate professional payslips"],
   },
   {
-    id: "4",
-    title: "HR & Employment Law",
-    slug: "hr",
-    category: "HR",
-    description: "Understand employment legislation, contracts, and workplace compliance essentials.",
-    duration: "8 weeks",
-    level: "Beginner",
-    price: 899,
-    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80",
-    features: ["Employment Contracts", "Workplace Rights", "HR Documentation", "Conflict Resolution"],
-    isPopular: false,
+    number: "04",
+    title: "RTI Submissions",
+    items: ["Real-Time Information to HMRC", "FPS & EPS returns"],
   },
   {
-    id: "5",
-    title: "QuickBooks & Cloud Accounting",
-    slug: "software",
-    category: "Software",
-    description: "Master cloud-based accounting software for modern business management.",
-    duration: "6 weeks",
-    level: "Beginner",
-    price: 699,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    features: ["QuickBooks Online", "Invoicing", "Expense Tracking", "Financial Reports"],
-    isPopular: true,
+    number: "05",
+    title: "Pension Auto-Enrolment",
+    items: ["Set up pension schemes", "Manage contributions"],
   },
   {
-    id: "6",
-    title: "Management Accounting",
-    slug: "management",
-    category: "Accounting",
-    description: "Develop strategic financial planning and analysis skills for business decisions.",
-    duration: "14 weeks",
-    level: "Intermediate",
-    price: 1599,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    features: ["Budgeting", "Cost Analysis", "Performance Metrics", "Strategic Planning"],
-    isPopular: false,
+    number: "06",
+    title: "Statutory Payments",
+    items: ["Maternity, paternity, sick pay", "Shared parental leave"],
+  },
+  {
+    number: "07",
+    title: "Tax Codes & Scottish Tax",
+    items: ["Tax code changes & coding notices", "Regional taxation"],
+  },
+  {
+    number: "08",
+    title: "Deductions & AEO",
+    items: ["Student loans", "Attachments of earnings orders"],
+  },
+  {
+    number: "09",
+    title: "Year-End Processing",
+    items: ["P60s, P11D, P32/P30 reports", "Year-end procedures"],
   },
 ];
-
-const categories = ["All", "Payroll", "Bookkeeping", "Accounting", "HR", "Software"];
 
 const benefits = [
   {
     icon: Award,
-    title: "Industry Recognition",
-    description: "Earn qualifications aligned with AAT, ICB, and CIPP standards",
+    title: "15+ Years Expert Trainer",
+    description: "Learn from a global payroll specialist with 15+ years of real-world experience",
+  },
+  {
+    icon: Briefcase,
+    title: "Real-World Projects",
+    description: "Work on actual payroll projects during training for hands-on practical experience",
   },
   {
     icon: BookOpen,
-    title: "Practical Training",
-    description: "Gain hands-on experience with real-world software",
+    title: "CV & Job Support",
+    description: "Professional CV review, job application assistance, and interview preparation included",
   },
   {
     icon: Users,
-    title: "Expert Support",
-    description: "Learn from qualified industry professionals",
-  },
-  {
-    icon: TrendingUp,
-    title: "Career Growth",
-    description: "Access exclusive work placement opportunities",
+    title: "Weekend Flexibility",
+    description: "Weekend classes perfect for working professionals and students",
   },
 ];
 
 export default function ProgrammesPage() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const filteredProgrammes = selectedCategory === "All"
-    ? allProgrammes
-    : allProgrammes.filter((p) => p.category === selectedCategory);
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-gray-50 pt-24 pb-16">
-        <Container>
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-              Transform Your Career with Industry-Leading Training
-            </h1>
+      {/* Premium Hero Section - Matching Homepage Style */}
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        {/* Background Pattern */}
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1920&q=80"
+            alt="Payroll training"
+            fill
+            className="object-cover opacity-[0.08]"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-blue-900/90 to-slate-900/95" />
+        </div>
 
-            {/* Description */}
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
-              Choose from our comprehensive range of professional training programmes designed to
-              equip you with the skills and qualifications employers demand.
-            </p>
+        {/* Elegant Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl animate-float-delayed" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-400/5 rounded-full blur-3xl animate-float-slow" />
+        </div>
 
-            {/* Stats */}
-            <div className="flex flex-wrap justify-center gap-8 mb-12">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">6+</div>
-                <div className="text-sm text-gray-600 mt-1">Programmes</div>
+        {/* Subtle Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
+          backgroundSize: '100px 100px'
+        }} />
+
+        <Container className="relative z-10 py-20">
+          <div className="max-w-6xl mx-auto text-center text-white">
+            <FadeIn>
+              {/* Premium Badge */}
+              <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-elegant">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
+                </span>
+                <span className="text-sm font-medium tracking-wide">Enrolling Now • Weekend Classes Available</span>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">12</div>
-                <div className="text-sm text-gray-600 mt-1">Weeks</div>
+            </FadeIn>
+
+            <FadeInUp delay={0.1}>
+              {/* Heading */}
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+                Master UK Payroll
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 mt-2">
+                  with BrightPay Training
+                </span>
+              </h1>
+            </FadeInUp>
+
+            <FadeInUp delay={0.2}>
+              {/* Description */}
+              <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-4xl mx-auto">
+                Expert 1-to-1 payroll training from an experienced specialist with 15+ years global experience. Small class sizes (max 4 students), weekend flexibility, and complete career support to launch your payroll career.
+              </p>
+            </FadeInUp>
+
+            <FadeInUp delay={0.3}>
+              {/* Stats Grid - Professional Glass Design */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
+                <div className="group relative">
+                  <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-blue-500/20 via-transparent to-indigo-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                  <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-8 rounded-2xl shadow-elegant group-hover:shadow-hover-elegant transition-all duration-500">
+                    <div className="text-5xl font-bold text-white mb-2">6</div>
+                    <div className="text-base font-semibold text-white mb-1">Weeks</div>
+                    <div className="text-sm text-blue-200">Complete Training</div>
+                  </div>
+                </div>
+                <div className="group relative">
+                  <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-blue-500/20 via-transparent to-indigo-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                  <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-8 rounded-2xl shadow-elegant group-hover:shadow-hover-elegant transition-all duration-500">
+                    <div className="text-5xl font-bold text-white mb-2">1:1</div>
+                    <div className="text-base font-semibold text-white mb-1">Personal</div>
+                    <div className="text-sm text-blue-200">Individual Attention</div>
+                  </div>
+                </div>
+                <div className="group relative">
+                  <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-blue-500/20 via-transparent to-indigo-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                  <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-8 rounded-2xl shadow-elegant group-hover:shadow-hover-elegant transition-all duration-500">
+                    <div className="text-5xl font-bold text-white mb-2">Max 4</div>
+                    <div className="text-base font-semibold text-white mb-1">Students</div>
+                    <div className="text-sm text-blue-200">Per Session</div>
+                  </div>
+                </div>
+                <div className="group relative">
+                  <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-blue-500/20 via-transparent to-indigo-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                  <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-8 rounded-2xl shadow-elegant group-hover:shadow-hover-elegant transition-all duration-500">
+                    <div className="text-5xl font-bold text-white mb-2">15+</div>
+                    <div className="text-base font-semibold text-white mb-1">Years</div>
+                    <div className="text-sm text-blue-200">Expert Trainer</div>
+                  </div>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">100%</div>
-                <div className="text-sm text-gray-600 mt-1">Practical</div>
+            </FadeInUp>
+
+            <FadeInUp delay={0.4}>
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center justify-center gap-3 px-10 py-4 bg-white text-slate-900 rounded-xl font-semibold text-lg hover:bg-blue-50 transition-all shadow-elegant hover:shadow-hover-elegant"
+                >
+                  Book Free Consultation
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-blue-600 text-white border-2 border-blue-500/50 rounded-xl font-semibold text-lg hover:bg-blue-700 hover:border-blue-400/50 transition-all shadow-elegant"
+                >
+                  Ask Questions
+                </Link>
               </div>
-            </div>
+            </FadeInUp>
           </div>
         </Container>
+
+        {/* Bottom Wave Divider */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg className="w-full h-16 text-white" preserveAspectRatio="none" viewBox="0 0 1440 48" fill="none">
+            <path d="M0 48h1440V0S1020 48 720 48 0 0 0 0v48z" fill="currentColor" />
+          </svg>
+        </div>
       </section>
 
       {/* Benefits */}
-      <section className="py-16 border-y border-gray-100">
-        <Container>
-          <div className="grid md:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              return (
-                <div key={index} className="text-center">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 text-white mb-4">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{benefit.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-
-      {/* Video/Image Section */}
       <section className="py-20 bg-white">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&q=80"
-                alt="Professional training classroom"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8 text-white">
-                <h3 className="text-3xl font-bold mb-2">Real-World Training Experience</h3>
-                <p className="text-lg text-white/90">Learn from industry experts in professional environments</p>
-              </div>
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Our Programmes Stand Out</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Our training programmes combine theoretical knowledge with hands-on practical experience,
-                ensuring you&apos;re job-ready from day one.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-gray-900">Industry-Recognized Certifications</p>
-                    <p className="text-gray-600 text-sm">AAT, ICB, and CIPP aligned qualifications</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-gray-900">Hands-On Software Training</p>
-                    <p className="text-gray-600 text-sm">Master Sage, Xero, QuickBooks, and more</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-gray-900">Flexible Learning Options</p>
-                    <p className="text-gray-600 text-sm">Evening, weekend, and online classes available</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </section>
+          <FadeInUp>
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+              Why Choose Our Training
+            </h2>
+            <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+              More than just software training - get expert instruction, real-world experience, and complete career support
+            </p>
+          </FadeInUp>
 
-      {/* Filter Tabs */}
-      <section className="sticky top-16 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <Container>
-          <div className="flex gap-2 overflow-x-auto py-4 scrollbar-hide">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full font-medium whitespace-nowrap transition-all text-sm ${
-                  category === selectedCategory
-                    ? "bg-gray-900 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Programmes Grid */}
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-        <Container>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProgrammes.map((programme) => (
-              <div
-                key={programme.id}
-                className="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-gray-300 hover:shadow-xl transition-all duration-300"
-              >
-                {/* Image */}
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={programme.image}
-                    alt={programme.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  {programme.isPopular && (
-                    <div className="absolute top-4 right-4">
-                      <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-full shadow-lg">
-                        <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                        <span className="text-xs font-semibold text-gray-900">Popular</span>
+          <StaggerContainer>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {benefits.map((benefit, index) => {
+                const Icon = benefit.icon;
+                return (
+                  <StaggerItem key={index}>
+                    <div className="text-center group hover:scale-105 transition-transform">
+                      <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 text-white mb-4 shadow-lg group-hover:shadow-xl transition-shadow">
+                        <Icon className="w-8 h-8" />
                       </div>
+                      <h3 className="font-bold text-gray-900 mb-2 text-lg">{benefit.title}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">{benefit.description}</p>
                     </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <Badge className="bg-white/90 text-gray-900 border-0 font-semibold">
-                      {programme.category}
-                    </Badge>
-                  </div>
-                </div>
+                  </StaggerItem>
+                );
+              })}
+            </div>
+          </StaggerContainer>
+        </Container>
+      </section>
 
-                {/* Content */}
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Badge variant="outline" className="text-xs border-gray-200">
-                      {programme.level}
-                    </Badge>
-                    <div className="flex items-center gap-1.5 text-sm text-gray-600">
-                      <Clock className="w-4 h-4" />
-                      <span>{programme.duration}</span>
+      {/* BrightPay Curriculum */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
+        <Container>
+          <FadeInUp>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Complete BrightPay Curriculum
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Master all aspects of UK payroll processing in 6 weeks with our comprehensive 9-module programme
+              </p>
+            </div>
+          </FadeInUp>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {curriculumModules.map((module, index) => (
+              <FadeInUp key={index} delay={0.1 * index}>
+                <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all group border border-gray-200 hover:border-primary-300">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 transition-transform">
+                      {module.number}
                     </div>
+                    <h3 className="text-xl font-bold text-gray-900 flex-1 group-hover:text-primary-600 transition-colors">
+                      {module.title}
+                    </h3>
                   </div>
-
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
-                    {programme.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed line-clamp-2">
-                    {programme.description}
-                  </p>
-
-                  {/* Features */}
-                  <ul className="space-y-2 mb-6">
-                    {programme.features.slice(0, 3).map((feature, index) => (
-                      <li key={index} className="flex items-center gap-2 text-sm text-gray-700">
-                        <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0" />
-                        <span>{feature}</span>
+                  <ul className="space-y-2">
+                    {module.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-gray-600">
+                        <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>
-
-                  {/* Price & CTA */}
-                  <div className="flex items-center justify-between pt-6 border-t border-gray-100">
-                    <div>
-                      <div className="text-3xl font-bold text-gray-900">
-                        £{programme.price.toLocaleString()}
-                      </div>
-                      <div className="text-xs text-gray-500 mt-0.5">One-time payment</div>
-                    </div>
-                    <Link
-                      href={`/programmes/${programme.slug}`}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium text-sm"
-                    >
-                      Learn More
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
                 </div>
-              </div>
+              </FadeInUp>
             ))}
-          </div>
-
-          {/* CTA */}
-          <div className="mt-24 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-12 lg:p-16 text-white">
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm mb-6">
-                <Users className="w-8 h-8" />
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                Not Sure Which Programme Is Right For You?
-              </h2>
-              <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                Book a free consultation with our career advisors. We&apos;ll assess your skills and
-                recommend the perfect training path for your career.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
-              >
-                Book Free Consultation
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
           </div>
         </Container>
       </section>
+
+      {/* Programme Card */}
+      <section className="py-20 bg-white">
+        <Container>
+          <div className="max-w-5xl mx-auto">
+            <FadeInUp>
+              <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl overflow-hidden shadow-2xl">
+                <div className="grid lg:grid-cols-2 gap-0">
+                  {/* Image Side */}
+                  <div className="relative h-[400px] lg:h-auto">
+                    <Image
+                      src={programme.image}
+                      alt={programme.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                    <div className="absolute top-4 right-4">
+                      <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full shadow-lg">
+                        <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                        <span className="text-sm font-bold text-gray-900">Most Popular</span>
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent" />
+                  </div>
+
+                  {/* Content Side */}
+                  <div className="p-10 lg:p-12 text-white">
+                    <Badge className="mb-4 bg-primary-600 text-white border-0">
+                      Payroll Training
+                    </Badge>
+                    <h2 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                      {programme.title}
+                    </h2>
+                    <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                      {programme.description}
+                    </p>
+
+                    {/* Key Features */}
+                    <div className="grid grid-cols-2 gap-4 mb-8">
+                      <div className="flex items-center gap-3">
+                        <Clock className="w-5 h-5 text-primary-400" />
+                        <div>
+                          <div className="text-sm text-gray-400">Duration</div>
+                          <div className="font-semibold">{programme.duration}</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Users className="w-5 h-5 text-primary-400" />
+                        <div>
+                          <div className="text-sm text-gray-400">Class Size</div>
+                          <div className="font-semibold">Max 4 Students</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <GraduationCap className="w-5 h-5 text-primary-400" />
+                        <div>
+                          <div className="text-sm text-gray-400">Curriculum</div>
+                          <div className="font-semibold">9 Modules</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Award className="w-5 h-5 text-primary-400" />
+                        <div>
+                          <div className="text-sm text-gray-400">Trainer</div>
+                          <div className="font-semibold">15+ Years Exp</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Price & CTA */}
+                    <div className="pt-8 border-t border-gray-700">
+                      <div className="flex items-end justify-between mb-6">
+                        <div>
+                          <div className="text-sm text-gray-400 mb-1">One-time payment</div>
+                          <div className="text-5xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                            £{programme.price}
+                          </div>
+                        </div>
+                      </div>
+                      <Link
+                        href="/contact"
+                        className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-600 to-blue-600 text-white rounded-lg font-bold text-lg hover:from-primary-700 hover:to-blue-700 hover:scale-105 transition-all shadow-lg hover:shadow-xl"
+                      >
+                        Enroll Now
+                        <ArrowRight className="w-5 h-5" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeInUp>
+          </div>
+        </Container>
+      </section>
+
+      {/* What's Included */}
+      <section className="py-20 bg-gradient-to-br from-primary-50 via-white to-blue-50">
+        <Container>
+          <FadeInUp>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                What&apos;s Included in Your £999 Package
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Everything you need to become job-ready in UK payroll
+              </p>
+            </div>
+          </FadeInUp>
+
+          <div className="max-w-4xl mx-auto">
+            <StaggerContainer>
+              <div className="grid md:grid-cols-2 gap-6">
+                {programme.features.map((feature, index) => (
+                  <StaggerItem key={index}>
+                    <div className="flex items-start gap-4 bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all group">
+                      <div className="flex-shrink-0">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <CheckCircle2 className="w-5 h-5 text-white" />
+                        </div>
+                      </div>
+                      <p className="text-gray-700 font-medium leading-relaxed">{feature}</p>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </div>
+            </StaggerContainer>
+          </div>
+        </Container>
+      </section>
+
+      {/* Recognition */}
+      <section className="py-20 bg-gray-900 text-white">
+        <Container>
+          <FadeInUp>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold mb-4">Industry Standards & Recognition</h2>
+              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                Our training uses HMRC-recognized software and aligns with UK payroll industry standards
+              </p>
+            </div>
+          </FadeInUp>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <FadeInUp delay={0.1}>
+              <div className="text-center p-8 bg-gray-800/50 rounded-xl backdrop-blur-sm border border-gray-700 hover:bg-gray-800 transition-all group">
+                <div className="text-4xl font-bold text-primary-400 mb-2 group-hover:scale-110 transition-transform inline-block">HMRC</div>
+                <div className="text-lg font-semibold mb-2">BrightPay Software</div>
+                <div className="text-sm text-gray-400">HMRC Recognized & Approved</div>
+              </div>
+            </FadeInUp>
+            <FadeInUp delay={0.2}>
+              <div className="text-center p-8 bg-gray-800/50 rounded-xl backdrop-blur-sm border border-gray-700 hover:bg-gray-800 transition-all group">
+                <div className="text-4xl font-bold text-primary-400 mb-2 group-hover:scale-110 transition-transform inline-block">UK</div>
+                <div className="text-lg font-semibold mb-2">Industry Standards</div>
+                <div className="text-sm text-gray-400">Aligned with UK Payroll Requirements</div>
+              </div>
+            </FadeInUp>
+          </div>
+        </Container>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-24 bg-gradient-to-br from-primary-600 via-blue-600 to-indigo-600 text-white relative overflow-hidden">
+        {/* Animated background */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+
+        <Container>
+          <FadeInUp>
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
+                Ready to Start Your Payroll Career?
+              </h2>
+              <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Join our next cohort and learn from a 15+ year global payroll expert.
+                Weekend classes starting soon - limited spots available!
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary-600 rounded-lg font-bold text-lg hover:bg-blue-50 hover:scale-105 transition-all shadow-lg hover:shadow-xl"
+                >
+                  Book Your Training Now
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-700 to-blue-700 text-white border-2 border-white/30 rounded-lg font-bold text-lg hover:from-primary-800 hover:to-blue-800 hover:scale-105 transition-all shadow-lg"
+                >
+                  Ask a Question
+                </Link>
+              </div>
+            </div>
+          </FadeInUp>
+        </Container>
+      </section>
+
+      {/* Gallery Section */}
+      <ProgrammeGallery />
+
+      {/* Testimonials Section */}
+      <ProgrammeTestimonials />
     </div>
   );
 }

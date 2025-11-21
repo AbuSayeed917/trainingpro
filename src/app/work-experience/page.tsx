@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui";
 import { Briefcase, Clock, MapPin, TrendingUp, CheckCircle2, ArrowRight, Users, Award, Building2 } from "lucide-react";
+import { CTA } from "@/components/sections/CTA";
+import { WorkExperienceVisuals } from "@/components/sections/WorkExperienceVisuals";
 
 const benefits = [
   {
@@ -51,97 +53,159 @@ const placementProcess = [
 
 const placementTypes = [
   {
-    title: "Payroll Department",
-    companies: "Finance & HR Teams",
+    title: "Payroll Department - Large Company",
+    companies: "Corporate HR & Finance Teams",
     duration: "8-12 weeks",
-    responsibilities: ["Processing payroll", "Managing RTI submissions", "Pension administration", "Compliance checks"],
+    responsibilities: ["Processing payroll using BrightPay", "Managing RTI submissions to HMRC", "Pension auto-enrolment administration", "Statutory payments processing"],
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",
   },
   {
-    title: "Bookkeeping Practice",
-    companies: "Accounting Firms & SMEs",
+    title: "Payroll Bureau",
+    companies: "Specialist Payroll Service Providers",
     duration: "6-10 weeks",
-    responsibilities: ["Daily bookkeeping", "VAT returns", "Bank reconciliation", "Client support"],
+    responsibilities: ["Multi-client payroll processing", "BrightPay software mastery", "Client communication", "Payroll compliance checks"],
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",
   },
   {
-    title: "Accounting Department",
-    companies: "Corporate Finance Teams",
-    duration: "10-12 weeks",
-    responsibilities: ["Financial reporting", "Month-end procedures", "Analysis support", "Audit preparation"],
+    title: "Accounting Firm Payroll",
+    companies: "Accountancy Practices",
+    duration: "8-10 weeks",
+    responsibilities: ["SME payroll services", "Year-end P60/P11D preparation", "PAYE & NI calculations", "Tax code management"],
     image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&q=80",
   },
 ];
 
 const stats = [
-  { number: "4-12", label: "Week Placements" },
+  { number: "6-12", label: "Week Placements" },
+  { number: "Real", label: "Payroll Projects" },
+  { number: "BrightPay", label: "Software Used" },
   { number: "100%", label: "Practical Learning" },
-  { number: "Real", label: "Business Experience" },
-  { number: "Career", label: "Focused Support" },
 ];
 
 export default function WorkExperiencePage() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gray-50 pt-24 pb-16">
-        <Container>
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-              Launch Your Career with Professional Experience
+      {/* Premium Hero Section */}
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&q=80"
+            alt="Professional workplace"
+            fill
+            className="object-cover opacity-[0.08]"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-blue-900/90 to-slate-900/95" />
+        </div>
+
+        {/* Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-20 left-20 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-float-delayed" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl animate-float-slow" />
+        </div>
+
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+          backgroundSize: '100px 100px'
+        }} />
+
+        <Container className="relative z-10 py-24">
+          <div className="max-w-5xl mx-auto">
+            {/* Premium Badge */}
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-elegant">
+                <Briefcase className="h-4 w-4 text-blue-400" />
+                <span className="text-sm font-semibold text-white">Real-World Work Experience</span>
+              </div>
+            </div>
+
+            {/* Main Heading with Gradient */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-center mb-8 leading-tight tracking-tight">
+              <span className="text-white">
+                Launch Your Career with
+              </span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 mt-3">
+                Professional Experience
+              </span>
             </h1>
 
-            {/* Description */}
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
-              Gain valuable hands-on experience in real business environments. Apply your newly
-              acquired skills, build your professional network, and transform your CV.
+            {/* Enhanced Description */}
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-12 leading-relaxed text-center">
+              Gain valuable hands-on experience in real payroll environments through our BrightPay programme.
+              Apply your skills, build your network, and transform your CV with practical industry experience.
             </p>
 
-            {/* Features */}
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full">
-                <Clock className="w-4 h-4 text-secondary-600" />
-                <span className="text-sm font-medium text-gray-700">4-12 Week Placements</span>
+            {/* Glass Morphism Stats */}
+            <div className="grid grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+              <div className="group relative">
+                <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-blue-500/20 via-transparent to-indigo-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-8 rounded-2xl shadow-elegant group-hover:shadow-hover-elegant transition-all duration-500 text-center">
+                  <Clock className="w-8 h-8 text-blue-400 mx-auto mb-3" />
+                  <div className="text-3xl font-bold text-white mb-1">6-12</div>
+                  <div className="text-sm text-blue-200">Week Placements</div>
+                </div>
               </div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full">
-                <MapPin className="w-4 h-4 text-secondary-600" />
-                <span className="text-sm font-medium text-gray-700">UK-Wide Opportunities</span>
+              <div className="group relative">
+                <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-cyan-500/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-8 rounded-2xl shadow-elegant group-hover:shadow-hover-elegant transition-all duration-500 text-center">
+                  <MapPin className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
+                  <div className="text-3xl font-bold text-white mb-1">UK</div>
+                  <div className="text-sm text-blue-200">Wide Coverage</div>
+                </div>
               </div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full">
-                <Building2 className="w-4 h-4 text-secondary-600" />
-                <span className="text-sm font-medium text-gray-700">Industry Partners</span>
+              <div className="group relative">
+                <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-indigo-500/20 via-transparent to-purple-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-8 rounded-2xl shadow-elegant group-hover:shadow-hover-elegant transition-all duration-500 text-center">
+                  <Building2 className="w-8 h-8 text-indigo-400 mx-auto mb-3" />
+                  <div className="text-3xl font-bold text-white mb-1">100%</div>
+                  <div className="text-sm text-blue-200">Practical Learning</div>
+                </div>
               </div>
+            </div>
+
+            {/* Premium CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-blue-900 rounded-2xl font-bold text-lg shadow-elegant hover:shadow-hover-elegant hover:scale-105 transition-all duration-300"
+              >
+                <span>Apply for Placement</span>
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/programmes"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-blue-600/80 backdrop-blur-md border-2 border-white/30 text-white rounded-2xl hover:bg-blue-700 transition-all duration-300 font-bold text-lg"
+              >
+                View BrightPay Programme
+              </Link>
             </div>
           </div>
         </Container>
+
+        {/* Wave Divider */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg className="w-full h-auto" viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+            <path d="M0,64 C360,100 720,20 1440,64 L1440,120 L0,120 Z" fill="white" fillOpacity="1"/>
+          </svg>
+        </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="border-y border-gray-100 py-16">
-        <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* Work Experience Visuals Section */}
+      <WorkExperienceVisuals />
 
-      {/* Benefits Section */}
-      <section className="py-24 bg-white">
+      {/* Premium Benefits Section */}
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
               Why Work Experience Matters
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Practical experience is invaluable for launching your career. Here&apos;s how our work
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Practical experience is invaluable for launching your payroll career. Here&apos;s how our work
               placements help you succeed in the competitive job market.
             </p>
           </div>
@@ -149,13 +213,24 @@ export default function WorkExperiencePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
+              const gradients = [
+                "from-blue-500 to-indigo-500",
+                "from-indigo-500 to-purple-500",
+                "from-purple-500 to-pink-500",
+                "from-pink-500 to-rose-500"
+              ];
               return (
-                <div key={index} className="group bg-white rounded-xl p-8 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-secondary-500 to-secondary-600 text-white mb-4">
-                    <Icon className="w-6 h-6" />
+                <div key={index} className="group relative">
+                  {/* Ambient Glow */}
+                  <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-blue-500/20 via-transparent to-indigo-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+
+                  <div className="relative h-full bg-white rounded-3xl p-8 border border-gray-200 shadow-elegant group-hover:shadow-hover-elegant transition-all duration-500">
+                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${gradients[index]} text-white mb-6 shadow-md group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                      <Icon className="w-8 h-8" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">{benefit.description}</p>
                 </div>
               );
             })}
@@ -163,15 +238,15 @@ export default function WorkExperiencePage() {
         </Container>
       </section>
 
-      {/* Success Stories with Images */}
+      {/* What You'll Gain Section */}
       <section className="py-20 bg-white">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-              Real Success Stories
+              What You&apos;ll Gain from Work Experience
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              See how our work placements have transformed careers
+              Practical skills and real-world experience that employers value
             </p>
           </div>
 
@@ -186,9 +261,9 @@ export default function WorkExperiencePage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
               <div className="absolute bottom-8 left-8 right-8 text-white">
-                <h3 className="text-2xl font-bold mb-2">Sarah Thompson</h3>
-                <p className="text-white/90 mb-1">Payroll Administrator</p>
-                <p className="text-sm text-white/80">&ldquo;The work placement gave me the confidence and experience I needed to start my career in payroll.&rdquo;</p>
+                <h3 className="text-2xl font-bold mb-2">Real Payroll Processing</h3>
+                <p className="text-white/90 mb-1">Hands-On Experience</p>
+                <p className="text-sm text-white/80">Work with actual payroll systems and process real employee payments under supervision</p>
               </div>
             </div>
 
@@ -202,50 +277,62 @@ export default function WorkExperiencePage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
               <div className="absolute bottom-8 left-8 right-8 text-white">
-                <h3 className="text-2xl font-bold mb-2">James Mitchell</h3>
-                <p className="text-white/90 mb-1">Junior Accountant</p>
-                <p className="text-sm text-white/80">&ldquo;Hands-on experience with real clients made all the difference in securing my first accounting role.&rdquo;</p>
+                <h3 className="text-2xl font-bold mb-2">Professional Environment</h3>
+                <p className="text-white/90 mb-1">Industry Standards</p>
+                <p className="text-sm text-white/80">Experience workplace culture and professional standards in accounting and payroll departments</p>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Process Section */}
-      <section className="py-24 bg-gray-50">
+      {/* Premium Process Section */}
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
               How Our Placement Process Works
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Our structured four-step process ensures you&apos;re matched with the right opportunity
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Our structured four-step process ensures you&apos;re matched with the right payroll opportunity
               and fully supported throughout your placement journey.
             </p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
-            {placementProcess.map((item, index) => (
-              <div key={index} className="relative">
-                {/* Connector Line */}
-                {index < placementProcess.length - 1 && (
-                  <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-gray-200" />
-                )}
+            {placementProcess.map((item, index) => {
+              const gradients = [
+                "from-blue-500 to-indigo-500",
+                "from-indigo-500 to-purple-500",
+                "from-purple-500 to-pink-500",
+                "from-pink-500 to-rose-500"
+              ];
+              return (
+                <div key={index} className="relative">
+                  {/* Connector Line */}
+                  {index < placementProcess.length - 1 && (
+                    <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-1 bg-gradient-to-r from-blue-200 to-transparent" />
+                  )}
 
-                <div className="relative z-10 bg-white rounded-xl p-6 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-xl bg-gradient-to-br from-secondary-500 to-secondary-600 text-white font-bold text-2xl mb-4">
-                    {item.step}
+                  <div className="group relative z-10">
+                    <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-blue-500/20 via-transparent to-indigo-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+
+                    <div className="relative bg-white rounded-3xl p-8 border border-gray-200 shadow-elegant group-hover:shadow-hover-elegant transition-all duration-500 h-full">
+                      <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${gradients[index]} text-white font-bold text-3xl mb-6 shadow-md group-hover:scale-110 transition-all duration-500`}>
+                        {item.step}
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                      <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">{item.description}</p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </Container>
       </section>
 
-      {/* Video/Image Feature Section */}
+      {/* Video Feature Section */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -285,15 +372,90 @@ export default function WorkExperiencePage() {
                 </div>
               </div>
             </div>
-            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl">
+
+            {/* Video Placeholder */}
+            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl group cursor-pointer">
               <Image
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80"
                 alt="Team meeting in office"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+
+              {/* Play Button */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-20 h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                  <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-gray-900 border-b-8 border-b-transparent ml-1"></div>
+                </div>
+              </div>
+
+              <div className="absolute bottom-8 left-8 right-8">
+                <div className="inline-block px-3 py-1 bg-red-600 rounded text-xs font-semibold text-white mb-3">
+                  WATCH SUCCESS STORIES
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-1">Hear from Our Alumni</h3>
+                <p className="text-white/90 text-sm">See how work placements transformed their careers</p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Image Gallery Section */}
+      <section className="py-20 bg-white">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Experience Real Business Environments
+            </h2>
+            <p className="text-lg text-gray-600">
+              Our placement partners offer diverse and professional work settings
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group">
+              <Image
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80"
+                alt="Modern office workspace"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <p className="font-semibold">Modern Office Spaces</p>
+              </div>
+            </div>
+
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group">
+              <Image
+                src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80"
+                alt="Collaborative workspace"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <p className="font-semibold">Collaborative Teams</p>
+              </div>
+            </div>
+
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group">
+              <Image
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
+                alt="Professional meetings"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <p className="font-semibold">Professional Meetings</p>
+              </div>
             </div>
           </div>
         </Container>
@@ -364,28 +526,37 @@ export default function WorkExperiencePage() {
         </Container>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 to-gray-800">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center text-white">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-              Ready to Start Your Professional Journey?
+      {/* Premium CTA Section */}
+      <section className="relative py-32 overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        {/* Background Effects */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-20 left-20 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-float-delayed" />
+        </div>
+
+        <Container className="relative z-10">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+              Ready to Start Your
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 mt-2">
+                Professional Journey?
+              </span>
             </h2>
-            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              Enroll in one of our training programmes and get access to exclusive work placement
-              opportunities that will kickstart your professional career.
+            <p className="text-xl text-blue-100 mb-12 leading-relaxed max-w-2xl mx-auto">
+              Enroll in our BrightPay training programme and get access to exclusive work placement
+              opportunities that will kickstart your payroll career.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/programmes"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
+                className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-blue-900 rounded-2xl font-bold text-lg shadow-elegant hover:shadow-hover-elegant hover:scale-105 transition-all duration-300"
               >
-                View Training Programmes
-                <ArrowRight className="w-5 h-5" />
+                <span>View BrightPay Programme</span>
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white rounded-lg hover:bg-white hover:text-gray-900 transition-all font-semibold"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-blue-600/80 backdrop-blur-md border-2 border-white/30 text-white rounded-2xl hover:bg-blue-700 transition-all duration-300 font-bold text-lg"
               >
                 Contact Us Today
               </Link>
@@ -393,6 +564,9 @@ export default function WorkExperiencePage() {
           </div>
         </Container>
       </section>
+
+      {/* CTA Section */}
+      <CTA />
     </div>
   );
 }

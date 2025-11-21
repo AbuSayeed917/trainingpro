@@ -7,3 +7,4 @@ export { LoadingSpinner, LoadingDots, LoadingPulse, PageLoader } from "./Loading
 export { Skeleton, SkeletonCard, SkeletonText } from "./Skeleton";
 export { FadeIn, FadeInUp, SlideInLeft, SlideInRight, ScaleIn, StaggerContainer, StaggerItem } from "./AnimatedSection";
 export { ImagePlaceholder, GradientPlaceholder } from "./ImagePlaceholder";
+export { ScrollReveal } from "./ScrollReveal";

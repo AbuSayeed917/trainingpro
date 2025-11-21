@@ -1,223 +1,224 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui";
-import { Target, Users, Award, TrendingUp, CheckCircle2, ArrowRight, Lightbulb, Heart, Shield } from "lucide-react";
+import { Target, Users, Award, TrendingUp, CheckCircle2, ArrowRight, Lightbulb, Heart, Shield, Sparkles, Play } from "lucide-react";
+import { useState } from "react";
+import { CoreValues } from "@/components/sections/CoreValues";
+import { AboutVisuals } from "@/components/sections/AboutVisuals";
 
 const values = [
   {
     icon: Target,
     title: "Excellence",
     description: "We maintain the highest standards in training delivery and student support.",
+    gradient: "from-blue-500 to-indigo-500",
   },
   {
     icon: Users,
     title: "Student-Focused",
     description: "Your success is our priority. We adapt our approach to meet your individual needs.",
+    gradient: "from-indigo-500 to-purple-500",
   },
   {
     icon: Award,
     title: "Quality Training",
     description: "Industry-aligned content delivered by qualified professionals with real experience.",
+    gradient: "from-purple-500 to-pink-500",
   },
   {
     icon: TrendingUp,
     title: "Career Growth",
     description: "We're committed to helping you achieve your professional goals and aspirations.",
+    gradient: "from-pink-500 to-rose-500",
   },
 ];
 
 const stats = [
-  { number: "6+", label: "Training Programmes" },
-  { number: "100%", label: "Practical Focus" },
-  { number: "12", label: "Week Programmes" },
-  { number: "24/7", label: "Online Access" },
+  { number: "6", label: "Weeks Training", suffix: "" },
+  { number: "1:1", label: "Personal Instruction", suffix: "" },
+  { number: "15", label: "Years Experience", suffix: "+" },
+  { number: "£999", label: "All Inclusive", suffix: "" },
 ];
 
 const whyChooseUs = [
-  "Industry-recognized qualifications from AAT, ICB, and CIPP",
-  "Practical, hands-on training with real-world applications",
-  "Flexible learning options: online, evening, and weekend classes",
-  "Expert instructors with professional experience",
-  "Work placement support and career guidance",
-  "Small class sizes for personalized attention",
+  "Expert trainer with 15+ years global payroll experience",
+  "One-to-one personal instruction for focused learning",
+  "Maximum 4 students per session for individual attention",
+  "Weekend classes perfect for working professionals",
+  "Real-world payroll projects for practical experience",
+  "Complete career support: CV help, job applications, interview prep",
+  "Comprehensive 9-module training programme",
+  "Free BrightPay software (HMRC-recognized)",
 ];
 
 const journey = [
   {
     icon: Lightbulb,
     title: "Our Vision",
-    description: "To become the leading provider of professional training that bridges the gap between education and employment.",
+    description: "To become the leading provider of professional payroll training that bridges the gap between education and employment, one student at a time.",
+    color: "text-yellow-400",
+    bg: "bg-yellow-500/20",
   },
   {
     icon: Heart,
     title: "Our Passion",
-    description: "We're passionate about empowering individuals with the skills and confidence to build rewarding careers.",
+    description: "We're passionate about empowering individuals with the practical payroll skills and confidence to build rewarding careers in the UK payroll industry.",
+    color: "text-pink-400",
+    bg: "bg-pink-500/20",
   },
   {
     icon: Shield,
     title: "Our Commitment",
-    description: "Dedicated to delivering high-quality, practical training that meets industry standards and employer needs.",
+    description: "Dedicated to delivering high-quality, practical BrightPay training that meets industry standards and gives you the skills employers actually need.",
+    color: "text-blue-400",
+    bg: "bg-blue-500/20",
   },
 ];
 
 export default function AboutPage() {
+  const [hoveredStat, setHoveredStat] = useState<number | null>(null);
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gray-50 pt-24 pb-16">
-        <Container>
-          <div className="max-w-4xl mx-auto text-center">
+      {/* Premium Hero Section - Matching Homepage Style */}
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        {/* Premium Background Pattern */}
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80"
+            alt="BrightPay Training Team"
+            fill
+            className="object-cover opacity-[0.08]"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-blue-900/90 to-slate-900/95" />
+        </div>
+
+        {/* Elegant Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl animate-float-delayed" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-400/5 rounded-full blur-3xl animate-float-slow" />
+        </div>
+
+        {/* Subtle Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
+          backgroundSize: '100px 100px'
+        }} />
+
+        <Container className="relative z-10 py-20">
+          <div className="max-w-5xl mx-auto text-center text-white">
+            {/* Premium Badge */}
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-elegant">
+              <Sparkles className="h-4 w-4 text-yellow-400" />
+              <span className="text-sm font-medium tracking-wide">15+ Years of Payroll Training Excellence</span>
+            </div>
+
             {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-              Empowering Careers Through Professional Training
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+              Expert BrightPay
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 mt-2">
+                Payroll Training
+              </span>
             </h1>
 
             {/* Description */}
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              We&apos;re dedicated to providing accessible, high-quality professional training in
-              finance, accounting, and business management that opens doors to rewarding careers.
+            <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto">
+              We specialize in one-to-one BrightPay payroll training, helping you master UK payroll
+              and launch your payroll career with expert guidance and complete career support.
             </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/programmes"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-xl font-semibold text-lg hover:bg-blue-50 transition-all shadow-elegant hover:shadow-hover-elegant"
+              >
+                View Training Programme
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white border-2 border-blue-500/50 rounded-xl font-semibold text-lg hover:bg-blue-700 hover:border-blue-400/50 transition-all shadow-elegant"
+              >
+                Book Free Consultation
+              </Link>
+            </div>
           </div>
         </Container>
+
+        {/* Bottom Wave Divider */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg className="w-full h-16 text-white" preserveAspectRatio="none" viewBox="0 0 1440 48" fill="none">
+            <path d="M0 48h1440V0S1020 48 720 48 0 0 0 0v48z" fill="currentColor" />
+          </svg>
+        </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="border-y border-gray-100 py-16">
+      {/* Stats Section - Premium Glass Design */}
+      <section className="section-padding bg-white relative -mt-1">
         <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="relative group"
+                  onMouseEnter={() => setHoveredStat(index)}
+                  onMouseLeave={() => setHoveredStat(null)}
+                >
+                  {/* Ambient Glow */}
+                  <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-blue-500/20 via-transparent to-indigo-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
 
-      {/* Mission Section */}
-      <section className="py-24 bg-white">
-        <Container>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Our Mission</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                We believe that everyone deserves access to high-quality professional training
-                that opens doors to rewarding careers. Our mission is to provide comprehensive,
-                practical education in payroll, bookkeeping, accounting, and HR management.
-              </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                We bridge the gap between education and employment by combining theoretical
-                knowledge with hands-on experience, ensuring our students are job-ready from
-                day one.
-              </p>
-              <div className="space-y-4">
-                {whyChooseUs.slice(0, 3).map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 leading-relaxed">{item}</span>
+                  <div className="relative text-center p-8 rounded-2xl bg-gradient-to-br from-slate-50 to-blue-50 border border-gray-200 shadow-elegant group-hover:shadow-hover-elegant transition-all duration-500 group-hover:-translate-y-2">
+                    <div className="text-5xl font-bold bg-gradient-to-br from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">
+                      {stat.number}{stat.suffix}
+                    </div>
+                    <div className="text-sm font-semibold text-gray-700">{stat.label}</div>
                   </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
-                alt="Training classroom"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
+                </div>
+              ))}
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-white">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Meet Our Expert Team</h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Industry professionals dedicated to your success
+      {/* Vision, Passion, Commitment - Dark Theme */}
+      <section className="section-padding bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float-slow" />
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl animate-float-delayed" />
+        </div>
+
+        <Container className="relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+              Our Story & Mission
+            </h2>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              Transforming lives through expert payroll training, one student at a time
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="group">
-              <div className="relative h-80 rounded-2xl overflow-hidden mb-4 shadow-lg">
-                <Image
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80"
-                  alt="Lead Instructor"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-1">David Richardson</h3>
-              <p className="text-primary-600 font-medium mb-2">Lead Payroll Instructor</p>
-              <p className="text-gray-600 text-sm">15+ years in payroll management with CIPP certification</p>
-            </div>
-
-            <div className="group">
-              <div className="relative h-80 rounded-2xl overflow-hidden mb-4 shadow-lg">
-                <Image
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80"
-                  alt="Senior Instructor"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-1">Emma Williams</h3>
-              <p className="text-primary-600 font-medium mb-2">Senior Bookkeeping Trainer</p>
-              <p className="text-gray-600 text-sm">AAT qualified with 12 years teaching experience</p>
-            </div>
-
-            <div className="group">
-              <div className="relative h-80 rounded-2xl overflow-hidden mb-4 shadow-lg">
-                <Image
-                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80"
-                  alt="HR Specialist"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-1">Michael Chen</h3>
-              <p className="text-primary-600 font-medium mb-2">HR & Employment Law Expert</p>
-              <p className="text-gray-600 text-sm">CIPD certified with corporate HR background</p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Vision, Passion, Commitment */}
-      <section className="py-24 bg-gray-50">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">What Drives Us</h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Our vision, passion, and commitment guide everything we do
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {journey.map((item, index) => {
               const Icon = item.icon;
               return (
-                <div
-                  key={index}
-                  className="group bg-white rounded-xl p-8 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all"
-                >
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 text-white mb-6">
-                    <Icon className="w-7 h-7" />
+                <div key={index} className="group relative">
+                  <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-blue-500/20 via-transparent to-indigo-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+
+                  <div className="relative h-full p-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-elegant group-hover:shadow-hover-elegant transition-all duration-500">
+                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${item.bg} mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                      <Icon className={`h-8 w-8 ${item.color}`} />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+                    <p className="text-blue-100 leading-relaxed">{item.description}</p>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
                 </div>
               );
             })}
@@ -225,29 +226,67 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Values Section */}
-      <section className="py-24 bg-white">
+      {/* Why Choose Us - Light Theme with Images */}
+      <section className="section-padding bg-gradient-to-br from-white via-blue-50/20 to-white relative overflow-hidden">
+        <div className="absolute top-1/4 right-10 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-float" />
+
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Our Core Values</h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              The principles that guide everything we do and shape our approach to training
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+                Why Choose Our BrightPay Training?
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Eight compelling reasons why students choose us for their payroll career launch
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {whyChooseUs.map((reason, index) => (
+                <div key={index} className="group relative">
+                  <div className="absolute -inset-px rounded-xl bg-gradient-to-br from-blue-500/10 via-transparent to-indigo-500/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+
+                  <div className="relative flex items-start gap-4 p-6 bg-white border border-gray-200 rounded-xl shadow-elegant group-hover:shadow-hover-elegant transition-all duration-500">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
+                        <CheckCircle2 className="h-5 w-5 text-white" />
+                      </div>
+                    </div>
+                    <p className="text-lg text-gray-900 font-medium leading-relaxed">{reason}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Values Section - Premium Cards */}
+      <section className="section-padding bg-gradient-to-br from-slate-50 via-white to-slate-50">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+              Our Core Values
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              The principles that guide everything we do
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
-                <div
-                  key={index}
-                  className="group bg-white rounded-xl p-8 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all"
-                >
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 text-white mb-4">
-                    <Icon className="w-6 h-6" />
+                <div key={index} className="group relative">
+                  <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-blue-500/10 via-transparent to-indigo-500/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+
+                  <div className="relative h-full p-8 bg-white border border-gray-200 rounded-2xl shadow-elegant group-hover:shadow-hover-elegant transition-all duration-500 hover:-translate-y-2">
+                    <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${value.gradient} mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                      <Icon className="h-7 w-7 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{value.description}</p>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{value.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">{value.description}</p>
                 </div>
               );
             })}
@@ -255,69 +294,45 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* What Sets Us Apart */}
-      <section className="py-24 bg-gray-50">
-        <Container>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden order-2 lg:order-1">
-              <Image
-                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80"
-                alt="Students in training"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-            <div className="order-1 lg:order-2">
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-                What Sets Us Apart
-              </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                We&apos;re not just another training provider. Our approach combines academic rigor
-                with practical application, ensuring you gain skills that employers actually need.
-              </p>
-              <div className="space-y-4">
-                {whyChooseUs.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 leading-relaxed">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* About Visuals Section */}
+      <AboutVisuals />
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 to-gray-800">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center text-white">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-              Ready to Start Your Journey?
+      {/* Final CTA */}
+      <section className="section-padding bg-gradient-to-br from-blue-600 to-indigo-600 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 right-10 w-64 h-64 bg-white rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-10 left-10 w-80 h-80 bg-cyan-300 rounded-full blur-3xl animate-float-delayed" />
+        </div>
+
+        <Container className="relative z-10">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+              Ready to Start Your Payroll Career?
             </h2>
-            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              Join our professional training programmes and take the first step towards a
-              rewarding career in finance and accounting.
+            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+              Launch your payroll career with our expert BrightPay training and personalized support
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/programmes"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
+                className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-white text-blue-600 font-bold text-lg rounded-xl shadow-elegant hover:shadow-hover-elegant hover:scale-105 transition-all duration-300"
               >
-                View Programmes
-                <ArrowRight className="w-5 h-5" />
+                View Full Curriculum
+                <ArrowRight className="h-5 w-5" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white rounded-lg hover:bg-white hover:text-gray-900 transition-all font-semibold"
+                className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-blue-700 text-white font-bold text-lg rounded-xl border-2 border-blue-400 hover:bg-blue-800 transition-all duration-300"
               >
-                Contact Us
+                Book Free Consultation
               </Link>
             </div>
           </div>
         </Container>
       </section>
+
+      {/* Core Values Section */}
+      <CoreValues />
     </div>
   );
 }

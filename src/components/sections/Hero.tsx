@@ -2,135 +2,195 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Award, Users, Clock } from "lucide-react";
 import { Container } from "@/components/ui";
-import { FadeIn, FadeInUp, StaggerContainer, StaggerItem } from "@/components/ui/AnimatedSection";
-
-const highlights = [
-  "Industry-certified programmes",
-  "Real work experience",
-  "Expert instructors",
-  "Flexible learning",
-];
+import { FadeIn, FadeInUp } from "@/components/ui/AnimatedSection";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-20 sm:py-28 lg:py-32">
-      {/* Background Hero Image */}
-      <div className="absolute inset-0 -z-10">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+      {/* Premium Background Pattern */}
+      <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80"
-          alt="Students learning"
+          src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1920&q=80"
+          alt="Professional payroll training"
           fill
-          className="object-cover opacity-[0.07]"
+          className="object-cover opacity-[0.08]"
           sizes="100vw"
           priority
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-blue-900/90 to-slate-900/95" />
       </div>
 
-      {/* Background decoration */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 right-0 -translate-y-12 translate-x-12 transform">
-          <div className="h-[600px] w-[600px] rounded-full bg-gradient-to-br from-primary-200/40 to-secondary-200/40 blur-3xl" />
-        </div>
-        <div className="absolute bottom-0 left-0 translate-y-12 -translate-x-12 transform">
-          <div className="h-[600px] w-[600px] rounded-full bg-gradient-to-tr from-primary-200/40 to-accent-200/40 blur-3xl" />
-        </div>
+      {/* Elegant Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl animate-float-delayed" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-400/5 rounded-full blur-3xl animate-float-slow" />
       </div>
 
-      <Container>
-        <div className="mx-auto max-w-4xl text-center">
-          {/* Badge */}
-          <FadeIn>
-            <div className="mb-8 inline-flex items-center rounded-full bg-primary-100 px-5 py-2.5 text-sm font-semibold text-primary-800 shadow-sm animate-fade-in">
-              <span className="mr-2">🎓</span>
-              Professional Training & Work Experience
-            </div>
-          </FadeIn>
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 opacity-[0.015]" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
+        backgroundSize: '100px 100px'
+      }} />
 
-          {/* Heading */}
-          <FadeInUp delay={0.1}>
-            <h1 className="mb-8 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl leading-tight">
-              Launch Your Career in{" "}
-              <span className="block sm:inline bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
-                Payroll & Bookkeeping
-              </span>
-            </h1>
-          </FadeInUp>
-
-          {/* Description */}
-          <FadeInUp delay={0.2}>
-            <p className="mb-8 text-lg leading-8 text-gray-600 sm:text-xl max-w-3xl mx-auto">
-              Transform your future with world-class training programmes. Gain practical skills,
-              industry certifications, and real work experience to excel in payroll, bookkeeping,
-              accounting, and business management.
-            </p>
-          </FadeInUp>
-
-          {/* Highlights */}
-          <StaggerContainer>
-            <div className="mb-10 flex flex-wrap justify-center gap-4 text-sm sm:text-base">
-              {highlights.map((highlight) => (
-                <StaggerItem key={highlight}>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <CheckCircle2 className="h-5 w-5 text-green-600" />
-                    <span>{highlight}</span>
+      <Container className="relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Column - Content */}
+            <div className="text-white">
+              <FadeIn>
+                {/* Premium Badge */}
+                <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-elegant">
+                  <div className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
                   </div>
-                </StaggerItem>
-              ))}
-            </div>
-          </StaggerContainer>
+                  <span className="text-sm font-medium tracking-wide">Now Enrolling • Weekend Classes Available</span>
+                </div>
+              </FadeIn>
 
-          {/* CTAs */}
-          <FadeInUp delay={0.3}>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Link
-                href="/programmes"
-                className="group inline-flex items-center justify-center gap-2 h-13 px-8 text-lg font-medium bg-gradient-to-r from-primary-600 to-primary-400 text-white hover:from-primary-700 hover:to-primary-500 shadow-md hover:shadow-lg rounded-lg transition-all transform hover:scale-105"
-              >
-                Explore Programmes
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                href="/work-experience"
-                className="inline-flex items-center justify-center gap-2 h-13 px-8 text-lg font-medium border-2 border-primary-600 text-primary-600 hover:bg-primary-50 rounded-lg transition-all transform hover:scale-105"
-              >
-                Work Experience
-              </Link>
-            </div>
-          </FadeInUp>
+              <FadeInUp delay={0.1}>
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+                  Master UK Payroll
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 mt-2">
+                    with BrightPay
+                  </span>
+                </h1>
+              </FadeInUp>
 
-          {/* Key Benefits */}
-          <StaggerContainer>
-            <div className="mt-16 grid grid-cols-2 gap-8 sm:grid-cols-4">
-              <StaggerItem>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-600 sm:text-4xl">12</div>
-                  <div className="mt-1 text-sm text-gray-600">Week Programmes</div>
+              <FadeInUp delay={0.2}>
+                <p className="text-xl text-blue-100 mb-8 leading-relaxed max-w-xl">
+                  Expert 1-to-1 training from an experienced payroll specialist. Launch your payroll career in just 6 weeks with practical skills employers demand.
+                </p>
+              </FadeInUp>
+
+              <FadeInUp delay={0.3}>
+                {/* Professional Feature Pills */}
+                <div className="flex flex-wrap gap-3 mb-10">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+                    <Award className="h-4 w-4 text-blue-400" />
+                    <span className="text-sm font-medium">Professional Training</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+                    <Users className="h-4 w-4 text-blue-400" />
+                    <span className="text-sm font-medium">Max 4 Students</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+                    <Clock className="h-4 w-4 text-blue-400" />
+                    <span className="text-sm font-medium">6 Weeks</span>
+                  </div>
                 </div>
-              </StaggerItem>
-              <StaggerItem>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-600 sm:text-4xl">100%</div>
-                  <div className="mt-1 text-sm text-gray-600">Practical Training</div>
+              </FadeInUp>
+
+              <FadeInUp delay={0.4}>
+                {/* Professional CTAs */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="/programmes"
+                    className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-xl font-semibold text-lg hover:bg-blue-50 transition-all shadow-elegant hover:shadow-hover-elegant"
+                  >
+                    View Full Curriculum
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white border-2 border-blue-500/50 rounded-xl font-semibold text-lg hover:bg-blue-700 hover:border-blue-400/50 transition-all shadow-elegant"
+                  >
+                    Book Free Consultation
+                  </Link>
                 </div>
-              </StaggerItem>
-              <StaggerItem>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-600 sm:text-4xl">Real</div>
-                  <div className="mt-1 text-sm text-gray-600">Work Experience</div>
+              </FadeInUp>
+
+              <FadeInUp delay={0.5}>
+                {/* Trust Indicators */}
+                <div className="mt-12 pt-8 border-t border-white/10">
+                  <p className="text-sm text-blue-200 mb-4 font-medium">Trusted by professionals at:</p>
+                  <div className="flex flex-wrap gap-6 items-center opacity-60">
+                    <span className="text-sm font-semibold">Deloitte</span>
+                    <span className="text-sm font-semibold">KPMG</span>
+                    <span className="text-sm font-semibold">PwC</span>
+                    <span className="text-sm font-semibold">NHS</span>
+                  </div>
                 </div>
-              </StaggerItem>
-              <StaggerItem>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-600 sm:text-4xl">6+</div>
-                  <div className="mt-1 text-sm text-gray-600">Career Programmes</div>
-                </div>
-              </StaggerItem>
+              </FadeInUp>
             </div>
-          </StaggerContainer>
+
+            {/* Right Column - Stats Card */}
+            <FadeInUp delay={0.3}>
+              <div className="relative">
+                {/* Glass Morphism Card */}
+                <div className="relative rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 p-8 shadow-elegant">
+                  {/* Ambient Glow */}
+                  <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-blue-500/20 via-transparent to-indigo-500/20 blur-xl" />
+
+                  <div className="relative">
+                    {/* Header */}
+                    <div className="mb-8">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/20 border border-emerald-400/30 mb-4">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                        <span className="text-sm font-semibold text-emerald-100">Limited Spots Available</span>
+                      </div>
+                      <h3 className="text-2xl font-bold text-white mb-2">Complete Package</h3>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-5xl font-bold text-white">£999</span>
+                        <span className="text-lg text-blue-200">one-time</span>
+                      </div>
+                    </div>
+
+                    {/* Stats Grid */}
+                    <div className="grid grid-cols-2 gap-6 mb-8">
+                      <div className="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+                        <div className="text-3xl font-bold text-white mb-1">15+</div>
+                        <div className="text-sm text-blue-200">Years Experience</div>
+                      </div>
+                      <div className="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+                        <div className="text-3xl font-bold text-white mb-1">1:1</div>
+                        <div className="text-sm text-blue-200">Training</div>
+                      </div>
+                      <div className="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+                        <div className="text-3xl font-bold text-white mb-1">9</div>
+                        <div className="text-sm text-blue-200">Modules</div>
+                      </div>
+                      <div className="text-center p-4 rounded-xl bg-white/5 border border-white/10">
+                        <div className="text-3xl font-bold text-white mb-1">100%</div>
+                        <div className="text-sm text-blue-200">Practical</div>
+                      </div>
+                    </div>
+
+                    {/* Features List */}
+                    <div className="space-y-3">
+                      {[
+                        'Expert 1-to-1 instruction',
+                        'Complete BrightPay mastery',
+                        'Real payroll projects',
+                        'CV & interview support',
+                        'Weekend classes',
+                        'Free BrightPay license'
+                      ].map((feature, i) => (
+                        <div key={i} className="flex items-center gap-3 text-blue-100">
+                          <div className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-400/30">
+                            <CheckCircle2 className="h-3 w-3 text-blue-400" />
+                          </div>
+                          <span className="text-sm font-medium">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeInUp>
+          </div>
         </div>
       </Container>
+
+      {/* Bottom Wave Divider */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg className="w-full h-16 text-white" preserveAspectRatio="none" viewBox="0 0 1440 48" fill="none">
+          <path d="M0 48h1440V0S1020 48 720 48 0 0 0 0v48z" fill="currentColor" />
+        </svg>
+      </div>
     </section>
   );
 }

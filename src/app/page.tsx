@@ -3,29 +3,29 @@ import {
   Features,
   FeaturedProgrammes,
   HowItWorks,
-  TrustedBy,
   FAQ,
-  CTA,
-  Instructors,
-  LearningRoadmap
+  LearningRoadmap,
+  WantToWeWill,
+  BeforeAfter,
+  VideoShowcase,
+  TrainerShowcase,
+  CTA
 } from "@/components/sections";
-import { VideoSection } from "@/components/sections/VideoSection";
 import { AnimatedStats } from "@/components/sections/AnimatedStats";
-import { FacilitiesGallery } from "@/components/sections/FacilitiesGallery";
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <VideoShowcase />
       <Features />
-      <FeaturedProgrammes />
+      <TrainerShowcase />
       <AnimatedStats />
+      <FeaturedProgrammes />
+      <WantToWeWill />
+      <BeforeAfter />
       <LearningRoadmap />
       <HowItWorks />
-      <VideoSection />
-      <Instructors />
-      <FacilitiesGallery />
-      <TrustedBy />
       <FAQ />
       <CTA />
     </>

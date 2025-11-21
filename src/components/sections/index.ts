@@ -9,3 +9,7 @@ export { CTA } from "./CTA";
 export { Instructors } from "./Instructors";
 export { SuccessStories } from "./SuccessStories";
 export { LearningRoadmap } from "./LearningRoadmap";
+export { WantToWeWill } from "./WantToWeWill";
+export { BeforeAfter } from "./BeforeAfter";
+export { VideoShowcase } from "./VideoShowcase";
+export { TrainerShowcase } from "./TrainerShowcase";
