@@ -68,13 +68,13 @@ export function Header() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
           <Link
             href="/book"
-            className="inline-flex items-center justify-center h-9 px-4 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-all"
+            className="inline-flex items-center justify-center min-h-[44px] px-5 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-all"
           >
             Book Consultation
           </Link>
           <Link
             href="/programmes"
-            className="inline-flex items-center justify-center h-9 px-4 text-sm font-medium bg-primary-600 text-white hover:bg-primary-700 rounded-lg shadow-md hover:shadow-lg transition-all"
+            className="inline-flex items-center justify-center min-h-[44px] px-5 text-sm font-medium bg-primary-600 text-white hover:bg-primary-700 rounded-lg shadow-md hover:shadow-lg transition-all"
           >
             View Programme
           </Link>
@@ -84,28 +84,28 @@ export function Header() {
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden">
-          <div className="space-y-2 px-4 pb-3 pt-2">
+          <div className="space-y-1 px-4 pb-3 pt-2">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                className="flex items-center rounded-lg px-4 py-3 text-base font-semibold text-gray-900 hover:bg-gray-50 min-h-[48px]"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="border-t border-gray-200 pt-4 space-y-2">
+            <div className="border-t border-gray-200 pt-4 space-y-3">
               <Link
                 href="/book"
-                className="w-full inline-flex items-center justify-center h-11 px-6 text-base font-medium border-2 border-primary-600 text-primary-600 hover:bg-primary-50 rounded-lg transition-all"
+                className="w-full inline-flex items-center justify-center min-h-[48px] px-6 text-base font-medium border-2 border-primary-600 text-primary-600 hover:bg-primary-50 rounded-lg transition-all"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Book Consultation
               </Link>
               <Link
                 href="/programmes"
-                className="w-full inline-flex items-center justify-center h-11 px-6 text-base font-medium bg-primary-600 text-white hover:bg-primary-700 rounded-lg shadow-md hover:shadow-lg transition-all"
+                className="w-full inline-flex items-center justify-center min-h-[48px] px-6 text-base font-medium bg-primary-600 text-white hover:bg-primary-700 rounded-lg shadow-md hover:shadow-lg transition-all"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 View Programme
