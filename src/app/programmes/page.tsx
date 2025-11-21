@@ -7,6 +7,7 @@ import { Clock, ArrowRight, Award, BookOpen, CheckCircle2, TrendingUp, Users, St
 import { FadeIn, FadeInUp, StaggerContainer, StaggerItem } from "@/components/ui/AnimatedSection";
 import { ProgrammeTestimonials } from "@/components/sections/ProgrammeTestimonials";
 import { ProgrammeGallery } from "@/components/sections/ProgrammeGallery";
+import { SalaryCareerInfo } from "@/components/sections/SalaryCareerInfo";
 
 // THE ONE BRIGHTPAY TRAINING PROGRAMME
 const programme = {
@@ -502,6 +503,9 @@ export default function ProgrammesPage() {
           </FadeInUp>
         </Container>
       </section>
+
+      {/* Salary & Career Information */}
+      <SalaryCareerInfo />
 
       {/* Gallery Section */}
       <ProgrammeGallery />

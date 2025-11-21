@@ -9,6 +9,8 @@ import {
   BeforeAfter,
   VideoShowcase,
   TrainerShowcase,
+  SalaryCareerInfo,
+  WhyTrainingNeeded,
   CTA
 } from "@/components/sections";
 import { AnimatedStats } from "@/components/sections/AnimatedStats";
@@ -18,6 +20,8 @@ export default function Home() {
     <>
       <Hero />
       <VideoShowcase />
+      <SalaryCareerInfo />
+      <WhyTrainingNeeded />
       <Features />
       <TrainerShowcase />
       <AnimatedStats />

@@ -13,3 +13,5 @@ export { WantToWeWill } from "./WantToWeWill";
 export { BeforeAfter } from "./BeforeAfter";
 export { VideoShowcase } from "./VideoShowcase";
 export { TrainerShowcase } from "./TrainerShowcase";
+export { SalaryCareerInfo } from "./SalaryCareerInfo";
+export { WhyTrainingNeeded } from "./WhyTrainingNeeded";
