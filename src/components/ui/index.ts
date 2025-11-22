@@ -19,3 +19,5 @@ export { SocialProof } from "./SocialProof";
 export { Timeline } from "./Timeline";
 export { PageTransition } from "./PageTransition";
 export { FormInput, FormTextarea } from "./FormInput";
+export { IconBox, IconFeature } from "./IconBox";
+export { ImageGallery } from "./ImageGallery";

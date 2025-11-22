@@ -17,6 +17,8 @@ import {
   TestimonialsEnhanced,
   SkillShowcase,
   PremiumStats,
+  TrainingFacilities,
+  ProfessionalStats,
   CTA
 } from "@/components/sections";
 import { AnimatedStats } from "@/components/sections/AnimatedStats";
@@ -28,13 +30,14 @@ export default function Home() {
       <ScrollProgress />
       <Hero />
       <VideoShowcase />
-      <PremiumStats />
+      <ProfessionalStats />
       <SalaryProgressionChart />
       <ModernComparison />
       <SkillShowcase />
       <SalaryCareerInfo />
       <WhyTrainingNeeded />
       <Features />
+      <TrainingFacilities />
       <TrainerShowcase />
       <TestimonialsEnhanced />
       <AnimatedStats />

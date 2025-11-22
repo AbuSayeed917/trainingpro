@@ -21,3 +21,5 @@ export { StatsDashboard } from "./StatsDashboard";
 export { TestimonialsEnhanced } from "./TestimonialsEnhanced";
 export { SkillShowcase } from "./SkillShowcase";
 export { PremiumStats } from "./PremiumStats";
+export { TrainingFacilities } from "./TrainingFacilities";
+export { ProfessionalStats } from "./ProfessionalStats";
