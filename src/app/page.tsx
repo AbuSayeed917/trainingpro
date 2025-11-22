@@ -20,11 +20,12 @@ import {
   CTA
 } from "@/components/sections";
 import { AnimatedStats } from "@/components/sections/AnimatedStats";
-import { FloatingCTA } from "@/components/ui";
+import { FloatingCTA, ScrollProgress, SocialProof } from "@/components/ui";
 
 export default function Home() {
   return (
     <>
+      <ScrollProgress />
       <Hero />
       <VideoShowcase />
       <PremiumStats />
@@ -45,6 +46,7 @@ export default function Home() {
       <FAQ />
       <CTA />
       <FloatingCTA />
+      <SocialProof />
     </>
   );
 }

@@ -14,3 +14,6 @@ export { ProgressiveImage } from "./ProgressiveImage";
 export { AnimatedCounter } from "./AnimatedCounter";
 export { GradientText } from "./GradientText";
 export { FloatingCTA } from "./FloatingCTA";
+export { ScrollProgress } from "./ScrollProgress";
+export { SocialProof } from "./SocialProof";
+export { Timeline } from "./Timeline";
