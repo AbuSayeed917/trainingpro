@@ -11,3 +11,6 @@ export { ScrollReveal } from "./ScrollReveal";
 export { MagneticButton } from "./MagneticButton";
 export { ParticleField } from "./ParticleField";
 export { ProgressiveImage } from "./ProgressiveImage";
+export { AnimatedCounter } from "./AnimatedCounter";
+export { GradientText } from "./GradientText";
+export { FloatingCTA } from "./FloatingCTA";

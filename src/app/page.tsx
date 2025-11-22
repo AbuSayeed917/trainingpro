@@ -16,16 +16,18 @@ import {
   StatsDashboard,
   TestimonialsEnhanced,
   SkillShowcase,
+  PremiumStats,
   CTA
 } from "@/components/sections";
 import { AnimatedStats } from "@/components/sections/AnimatedStats";
+import { FloatingCTA } from "@/components/ui";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <VideoShowcase />
-      <StatsDashboard />
+      <PremiumStats />
       <SalaryProgressionChart />
       <ModernComparison />
       <SkillShowcase />
@@ -42,6 +44,7 @@ export default function Home() {
       <HowItWorks />
       <FAQ />
       <CTA />
+      <FloatingCTA />
     </>
   );
 }

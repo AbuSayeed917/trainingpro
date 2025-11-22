@@ -20,3 +20,4 @@ export { ModernComparison } from "./ModernComparison";
 export { StatsDashboard } from "./StatsDashboard";
 export { TestimonialsEnhanced } from "./TestimonialsEnhanced";
 export { SkillShowcase } from "./SkillShowcase";
+export { PremiumStats } from "./PremiumStats";
