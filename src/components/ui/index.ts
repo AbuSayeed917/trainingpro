@@ -17,3 +17,5 @@ export { FloatingCTA } from "./FloatingCTA";
 export { ScrollProgress } from "./ScrollProgress";
 export { SocialProof } from "./SocialProof";
 export { Timeline } from "./Timeline";
+export { PageTransition } from "./PageTransition";
+export { FormInput, FormTextarea } from "./FormInput";
